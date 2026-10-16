@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-16T01:47:48.938Z",
+  "updatedAt": "2026-10-16T01:51:19.017Z",
   "deals": [
     {
       "id": "salcobrand-club-bebe",
@@ -142,6 +142,17 @@
       "region": "Coquimbo",
       "category": "Panoramas",
       "url": "https://panoramas.laserena.cl/",
+      "expiresAt": null
+    },
+    {
+      "id": "bono-natalidad-cajas-compensacion",
+      "title": "Bono por nacimiento de un hijo",
+      "store": "Cajas de compensación (Los Héroes, 18, otras)",
+      "description": "Aporte único para afiliados por el nacimiento de un hijo; el monto varía según la caja. Se solicita dentro de 120 días desde el nacimiento, o con certificado de embarazo desde el séptimo mes. Confirma montos en tu caja.",
+      "discount": "Bono único",
+      "region": "Todo Chile",
+      "category": "Embarazo",
+      "url": "https://www.meganoticias.cl/dato-util/528285-bono-natalidad-cajas-compensacion-montos-requisitos-31-07-2026.html",
       "expiresAt": null
     }
   ]

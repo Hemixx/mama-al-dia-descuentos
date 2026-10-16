@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-16T10:24:05.190Z",
+  "updatedAt": "2026-10-16T10:36:27.625Z",
   "panoramas": [
     {
       "id": "cafetin-de-virgilio",
@@ -420,6 +420,66 @@
       "when": "Consultar horario",
       "endsAt": null,
       "url": "https://www.uber.com/es-CL/blog/lugares-para-visitar-en-valdivia-2"
+    },
+    {
+      "id": "guaguateca-antofagasta",
+      "title": "Guaguateca para primera infancia",
+      "place": "Biblioteca Regional de Antofagasta",
+      "kind": "Biblioteca",
+      "description": "Primera guaguateca de la red nacional: espacio gratuito de lectura y juego para bebés y niños pequeños junto a sus cuidadores.",
+      "ageMin": 0,
+      "ageMax": 4,
+      "region": "Antofagasta",
+      "address": "Antofagasta",
+      "price": "Gratis",
+      "when": "Consultar horario",
+      "endsAt": null,
+      "url": "https://www.cultura.gob.cl/plan-lectura/ministerio-de-las-culturas-inaugura-en-antofagasta-la-primera-de-44-guaguatecas-que-seran-parte-de-una-nueva-red-nacional/"
+    },
+    {
+      "id": "guaguateca-valparaiso",
+      "title": "Guaguateca para primera infancia",
+      "place": "Biblioteca de Santiago Severín",
+      "kind": "Biblioteca",
+      "description": "Guaguateca para la primera infancia en la Biblioteca Santiago Severín, con libros y espacio de juego para los más pequeños.",
+      "ageMin": 0,
+      "ageMax": 4,
+      "region": "Valparaíso",
+      "address": "Valparaíso",
+      "price": "Gratis",
+      "when": "Consultar horario",
+      "endsAt": null,
+      "url": "https://www.cultura.gob.cl/actualidad/biblioteca-santiago-severin-inauguro-guaguateca-para-la-primera-infancia-en-valparaiso/"
+    },
+    {
+      "id": "guaguateca-puente-alto",
+      "title": "Guaguateca en Puente Alto",
+      "place": "Guaguateca de Puente Alto",
+      "kind": "Biblioteca",
+      "description": "Nuevo espacio gratuito para la primera infancia, parte de la red de guaguatecas descentralizadas.",
+      "ageMin": 0,
+      "ageMax": 4,
+      "region": "Santiago (RM)",
+      "address": "Puente Alto",
+      "price": "Gratis",
+      "when": "Consultar horario",
+      "endsAt": null,
+      "url": "https://radio.uchile.cl/2025/11/24/nueva-guaguateca-en-puente-alto-gobierno-fortalece-red-de-espacios-gratuitos-y-descentralizados-para-la-primera-infancia/"
+    },
+    {
+      "id": "guaguateca-puerto-montt",
+      "title": "Guaguateca para niños de 0 a 4 años",
+      "place": "Biblioteca Regional de Los Lagos",
+      "kind": "Biblioteca",
+      "description": "Espacio para niñas y niños de 0 a 4 años con libros seleccionados, para compartir la lectura con sus cuidadores.",
+      "ageMin": 0,
+      "ageMax": 4,
+      "region": "Los Lagos",
+      "address": "Quillota 113, Puerto Montt",
+      "price": "Gratis",
+      "when": "Consultar horario",
+      "endsAt": null,
+      "url": "https://www.semanariolocal.cl/?p=34105"
     }
   ]
 }

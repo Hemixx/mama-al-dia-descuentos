@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-16T02:24:09.651Z",
+  "updatedAt": "2026-10-16T02:34:16.062Z",
   "deals": [
     {
       "id": "salcobrand-club-bebe",
@@ -130,6 +130,78 @@
       "region": "Todo Chile",
       "category": "Embarazo",
       "url": "https://www.meganoticias.cl/dato-util/528285-bono-natalidad-cajas-compensacion-montos-requisitos-31-07-2026.html",
+      "expiresAt": null,
+      "audience": "mujer"
+    },
+    {
+      "id": "paris-silla-auto-supra-360",
+      "title": "Silla de auto convertible Supra 360° Bebesit",
+      "store": "Paris",
+      "description": "Precio oferta $109.990 (normal $369.990) en la web de Paris. Verifica stock y vigencia antes de comprar.",
+      "discount": "70% dcto",
+      "region": "Todo Chile",
+      "category": "Artículos bebé",
+      "url": "https://www.paris.cl/silla-de-auto-convertible-supra-360-gris-claro-MKZHP1IFZG.html",
+      "expiresAt": null,
+      "audience": "bebe"
+    },
+    {
+      "id": "lider-extractor-momcozy",
+      "title": "Extractor de leche eléctrico doble Momcozy",
+      "store": "Lider",
+      "description": "Precio oferta $319.990 (antes $399.990). Puntos Mi Club al pagar con Tarjeta Lider Bci.",
+      "discount": "20% dcto",
+      "region": "Todo Chile",
+      "category": "Embarazo",
+      "url": "https://www.lider.cl/ip/lactancia/extractor-de-leche-materna-doble-air-1/00045006867914",
+      "expiresAt": null,
+      "audience": "mujer"
+    },
+    {
+      "id": "lider-extractores-balia",
+      "title": "Extractores de leche en rebaja (Balia y otros)",
+      "store": "Lider",
+      "description": "Extractor Balia a $49.990 (antes $99.990) y otros modelos rebajados en la categoría de lactancia. Revisa disponibilidad.",
+      "discount": "50% dcto",
+      "region": "Todo Chile",
+      "category": "Embarazo",
+      "url": "https://www.lider.cl/browse/mundo-bebe/lactancia/extractores-de-leche/40094495_51094991_65672745",
+      "expiresAt": null,
+      "audience": "mujer"
+    },
+    {
+      "id": "mamografia-fonasa-gratis",
+      "title": "Mamografía gratis en la red pública",
+      "store": "ChileAtiende · Fonasa",
+      "description": "Usuarias de Fonasa acceden a mamografía sin costo en su CESFAM, sin orden médica. Entre 50 y 59 años, una gratis cada 3 años (Fonasa o isapre).",
+      "discount": "Gratis",
+      "region": "Todo Chile",
+      "category": "Salud",
+      "url": "https://www.chileatiende.gob.cl/fichas/15852-prevenir-y-tratar-el-cancer-de-mama%C2%A0",
+      "expiresAt": null,
+      "audience": "mujer"
+    },
+    {
+      "id": "pap-ges-gratuito",
+      "title": "PAP gratuito para mujeres de 25 a 64 años",
+      "store": "Fonasa · GES",
+      "description": "Examen de Papanicolaou cubierto por GES en la red pública para mujeres de 25 a 64 años. Confirma en tu CESFAM.",
+      "discount": "Gratis",
+      "region": "Todo Chile",
+      "category": "Salud",
+      "url": "https://cuantomecuesta.com/cl/ginecologo/",
+      "expiresAt": null,
+      "audience": "mujer"
+    },
+    {
+      "id": "bono-por-hijo-pgu",
+      "title": "Bono por Hijo para madres desde los 65 años",
+      "store": "ChileAtiende · IPS",
+      "description": "Bonificación estatal por cada hijo nacido vivo o adoptado: 10% de 18 ingresos mínimos. Para madres de 65 años o más que reciben PGU; se solicita con ClaveÚnica.",
+      "discount": "10% de 18 sueldos mínimos",
+      "region": "Todo Chile",
+      "category": "Beneficio estatal",
+      "url": "https://www.chileatiende.gob.cl/fichas/5194/1/pdf",
       "expiresAt": null,
       "audience": "mujer"
     }

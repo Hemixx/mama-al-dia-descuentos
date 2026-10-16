@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-16T02:34:16.062Z",
+  "updatedAt": "2026-10-16T10:07:24.443Z",
   "deals": [
     {
       "id": "salcobrand-club-bebe",
@@ -203,6 +203,30 @@
       "category": "Beneficio estatal",
       "url": "https://www.chileatiende.gob.cl/fichas/5194/1/pdf",
       "expiresAt": null,
+      "audience": "mujer"
+    },
+    {
+      "id": "falabella-silla-auto-saturn",
+      "title": "Silla de auto Bebesit Saturn 360° Isofix",
+      "store": "Falabella",
+      "description": "Precio oferta $84.990 (antes $219.990) en Mundo Bebé de Falabella.com. Verifica stock y vigencia.",
+      "discount": "61% dcto",
+      "region": "Todo Chile",
+      "category": "Artículos bebé",
+      "url": "https://www.falabella.com/falabella-cl/collection/mundo-bebe",
+      "expiresAt": null,
+      "audience": "bebe"
+    },
+    {
+      "id": "cruzverde-bancochile-25",
+      "title": "25% en medicamentos y vitaminas",
+      "store": "Farmacias Cruz Verde · Banco de Chile",
+      "description": "Descuento en medicamentos y vitaminas para clientes con tarjetas Banco de Chile, hasta el 15 de febrero de 2027.",
+      "discount": "25% dcto",
+      "region": "Todo Chile",
+      "category": "Salud",
+      "url": "https://sitiospublicos.bancochile.cl/personas/beneficios/detalle/farmacias-cruz-verde",
+      "expiresAt": "2027-02-15",
       "audience": "mujer"
     }
   ]

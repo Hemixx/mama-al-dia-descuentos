@@ -1,0 +1,12 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "rewrites": [
+    { "source": "/:path*", "destination": "https://mama-al-dia-31837.web.app/:path*" }
+  ],
+  "headers": [
+    {
+      "source": "/assets/node_modules/(.*)",
+      "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }]
+    }
+  ]
+}

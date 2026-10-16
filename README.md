@@ -10,5 +10,5 @@ La información se obtiene de páginas públicas; revisa siempre las condiciones
 
 ## Sección Descubre (web)
 
-- `web/`: la sección Descubre rediseñada, lista para publicar (Vercel). Lee `deals.json` y `panoramas.json` en vivo desde GitHub y trae una copia incluida por si no hay conexión. Se puede agregar a la pantalla de inicio del celular.
+- `docs/`: la sección Descubre rediseñada, publicada con GitHub Pages en https://hemixx.github.io/mama-al-dia-descuentos/. Lee `deals.json` y `panoramas.json` en vivo desde GitHub y trae una copia incluida por si no hay conexión. Se puede agregar a la pantalla de inicio del celular.
 - `prototipos/descubre.html`: la plantilla de esa página, con los datos como marcadores `/*__DEALS__*/` y `/*__PANOS__*/`.

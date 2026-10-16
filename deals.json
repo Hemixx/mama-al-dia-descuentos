@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-16T01:51:19.017Z",
+  "updatedAt": "2026-10-16T02:24:09.651Z",
   "deals": [
     {
       "id": "salcobrand-club-bebe",
@@ -8,9 +8,10 @@
       "description": "Descuento en productos de bebé para afiliados a Caja Los Andes que usen el convenio Club Bebé de Salcobrand.",
       "discount": "Hasta 20%",
       "region": "Todo Chile",
-      "category": "Bebé",
+      "category": "Artículos bebé",
       "url": "https://masbeneficios.cajalosandes.cl/bebe-convenio?beneficio=farmacias-salcobrand---club-bebe-desc-hasta-20-dcto",
-      "expiresAt": "2026-12-31"
+      "expiresAt": "2026-12-31",
+      "audience": "bebe"
     },
     {
       "id": "ahumada-club-mi-bebe",
@@ -19,9 +20,10 @@
       "description": "Programa gratuito desde el embarazo: cupón de 20% en productos seleccionados, misiones mensuales con cupones y despacho gratis en compras de bebé sobre $29.990.",
       "discount": "20% bienvenida",
       "region": "Todo Chile",
-      "category": "Bebé",
+      "category": "Artículos bebé",
       "url": "https://www.farmaciasahumada.cl/club-bebe.html",
-      "expiresAt": null
+      "expiresAt": null,
+      "audience": "bebe"
     },
     {
       "id": "cruzverde-genericos-cajalosandes",
@@ -32,7 +34,8 @@
       "region": "Todo Chile",
       "category": "Salud",
       "url": "https://masbeneficios.cajalosandes.cl/salud-convenio?beneficio=farmacia-cruz-verde-desc-45-dcto&idc=RoR&idb=kmY",
-      "expiresAt": "2026-12-31"
+      "expiresAt": "2026-12-31",
+      "audience": "mujer"
     },
     {
       "id": "happy-mom-achs",
@@ -41,9 +44,10 @@
       "description": "Descuento para trabajadores afiliados a ACHS, con despacho a todo Chile por Correos de Chile.",
       "discount": "20% dcto",
       "region": "Todo Chile",
-      "category": "Bebé",
+      "category": "Artículos bebé",
       "url": "https://mundoachs.cl/descuento/happy-mom-chile",
-      "expiresAt": "2027-04-30"
+      "expiresAt": "2027-04-30",
+      "audience": "bebe"
     },
     {
       "id": "unimarc-babysec-xxxg",
@@ -52,9 +56,10 @@
       "description": "Precio oferta $30.390 (normal $44.690). También XXG 112 u. a $30.390. Revisa disponibilidad en tu local.",
       "discount": "32% dcto",
       "region": "Todo Chile",
-      "category": "Bebé",
+      "category": "Pañales",
       "url": "https://www.unimarc.cl/brand/babysec",
-      "expiresAt": null
+      "expiresAt": null,
+      "audience": "bebe"
     },
     {
       "id": "jumbo-babysec-xxg",
@@ -63,9 +68,10 @@
       "description": "Precio oferta $30.893 (normal $41.190). También Babysec Voy a Dormir S/M a $9.190.",
       "discount": "25% dcto",
       "region": "Todo Chile",
-      "category": "Bebé",
+      "category": "Pañales",
       "url": "https://www.jumbo.cl/bebe-y-jugueteria/bebe",
-      "expiresAt": null
+      "expiresAt": null,
+      "audience": "bebe"
     },
     {
       "id": "lider-babysec",
@@ -74,9 +80,10 @@
       "description": "Pack de 100 unidades a $29.990 en el supermercado online.",
       "discount": "$29.990",
       "region": "Todo Chile",
-      "category": "Bebé",
+      "category": "Pañales",
       "url": "https://super.lider.cl/v/panales-babysec",
-      "expiresAt": null
+      "expiresAt": null,
+      "audience": "bebe"
     },
     {
       "id": "ajuar-chile-crece-contigo",
@@ -87,7 +94,8 @@
       "region": "Todo Chile",
       "category": "Beneficio estatal",
       "url": "https://www.elmostrador.cl/datos-utiles/2026/07/03/si-tu-hijo-nace-en-hospital-publico-te-corresponde-este-kit-gratuito-que-pasara-tras-el-recorte/",
-      "expiresAt": null
+      "expiresAt": null,
+      "audience": "bebe"
     },
     {
       "id": "asignacion-maternal",
@@ -98,7 +106,8 @@
       "region": "Todo Chile",
       "category": "Embarazo",
       "url": "https://www.biobiochile.cl/noticias/servicios/beneficios/2026/08/10/embarazadas-pueden-recibir-hasta-22-mil-al-mes-asi-se-obtiene-la-asignacion-maternal.shtml",
-      "expiresAt": null
+      "expiresAt": null,
+      "audience": "mujer"
     },
     {
       "id": "subsidio-maternal",
@@ -109,40 +118,8 @@
       "region": "Todo Chile",
       "category": "Beneficio estatal",
       "url": "https://www.crececontigo.gob.cl/faqs/cuales-son-los-requisitos-para-el-suf-maternal/",
-      "expiresAt": null
-    },
-    {
-      "id": "panoramas-gratis-santiago-octubre",
-      "title": "Panoramas gratis del 16 al 18 de octubre",
-      "store": "Varios lugares de la RM",
-      "description": "Feria del libro infantil en Quinta Normal (domingo 18, 11:00 a 21:00) y otras actividades gratuitas del fin de semana.",
-      "discount": "Gratis",
-      "region": "Santiago (RM)",
-      "category": "Panoramas",
-      "url": "https://www.meteored.cl/noticias/ocio/que-hacer-en-santiago-este-fin-de-semana-los-mejores-panoramas-del-16-al-18-de-octubre.html",
-      "expiresAt": "2026-10-18"
-    },
-    {
-      "id": "valparaiso-paseos-ninos",
-      "title": "Paseos gratis con niños en Valparaíso",
-      "store": "Museos y ascensores de Valparaíso",
-      "description": "Ideas para recorrer Valparaíso con niños: museos con entrada liberada para menores, ascensores y miradores.",
-      "discount": "Gratis",
-      "region": "Valparaíso",
-      "category": "Panoramas",
-      "url": "https://umatu.cl/paseos-en-valparaiso-con-ninos/",
-      "expiresAt": null
-    },
-    {
-      "id": "la-serena-panoramas",
-      "title": "Panoramas familiares en La Serena",
-      "store": "Municipalidad de La Serena",
-      "description": "Agenda municipal con actividades, shows infantiles y parques gratuitos como el Parque O'Higgins.",
-      "discount": "Gratis",
-      "region": "Coquimbo",
-      "category": "Panoramas",
-      "url": "https://panoramas.laserena.cl/",
-      "expiresAt": null
+      "expiresAt": null,
+      "audience": "mujer"
     },
     {
       "id": "bono-natalidad-cajas-compensacion",
@@ -153,7 +130,8 @@
       "region": "Todo Chile",
       "category": "Embarazo",
       "url": "https://www.meganoticias.cl/dato-util/528285-bono-natalidad-cajas-compensacion-montos-requisitos-31-07-2026.html",
-      "expiresAt": null
+      "expiresAt": null,
+      "audience": "mujer"
     }
   ]
 }

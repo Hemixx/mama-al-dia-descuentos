@@ -7,7 +7,8 @@ const REGIONS = [
   'Todo Chile', 'Santiago (RM)', 'Arica y Parinacota', 'Tarapacá', 'Antofagasta', 'Atacama', 'Coquimbo', 'Valparaíso',
   "O'Higgins", 'Maule', 'Ñuble', 'Biobío', 'Araucanía', 'Los Ríos', 'Los Lagos', 'Aysén', 'Magallanes',
 ];
-const CATEGORIES = ['Bebé', 'Embarazo', 'Salud', 'Ropa', 'Alimentación', 'Panoramas', 'Educación', 'Beneficio estatal', 'Otro'];
+const CATEGORIES = ['Pañales', 'Alimentación bebé', 'Ropa bebé', 'Artículos bebé', 'Embarazo', 'Belleza', 'Ropa mujer', 'Salud', 'Beneficio estatal', 'Otro'];
+const AUDIENCES = ['bebe', 'mujer'];
 const FIELDS = ['id', 'title', 'store', 'description', 'discount', 'region', 'category', 'url'];
 
 const today = new Intl.DateTimeFormat('en-CA', { timeZone: 'America/Santiago' }).format(new Date());
@@ -20,6 +21,7 @@ const deals = (data.deals ?? []).filter((d, i) => {
   for (const f of FIELDS) if (typeof d[f] !== 'string' || !d[f].trim()) errors.push(`${where}: falta "${f}"`);
   if (!REGIONS.includes(d.region)) errors.push(`${where}: región inválida "${d.region}"`);
   if (!CATEGORIES.includes(d.category)) errors.push(`${where}: categoría inválida "${d.category}"`);
+  if (!AUDIENCES.includes(d.audience)) errors.push(`${where}: audience debe ser "bebe" o "mujer"`);
   if (!/^https:\/\//.test(d.url ?? '')) errors.push(`${where}: la URL debe empezar con https://`);
   if (d.expiresAt != null && !/^\d{4}-\d{2}-\d{2}$/.test(d.expiresAt)) errors.push(`${where}: expiresAt debe ser AAAA-MM-DD o null`);
   if (d.expiresAt && d.expiresAt < today) return false; // vencido: se quita

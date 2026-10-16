@@ -7,3 +7,8 @@ Cupones para bebés y mujeres, y panoramas para familias con niños pequeños en
 - `check-deals.mjs` y `check-panoramas.mjs`: validan el formato y quitan lo vencido.
 
 La información se obtiene de páginas públicas; revisa siempre las condiciones en el sitio de cada tienda.
+
+## Sección Descubre (web)
+
+- `web/`: la sección Descubre rediseñada, lista para publicar (Vercel). Lee `deals.json` y `panoramas.json` en vivo desde GitHub y trae una copia incluida por si no hay conexión. Se puede agregar a la pantalla de inicio del celular.
+- `prototipos/descubre.html`: la plantilla de esa página, con los datos como marcadores `/*__DEALS__*/` y `/*__PANOS__*/`.

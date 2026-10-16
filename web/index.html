@@ -1,0 +1,672 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Descubre · Mamá al Día</title>
+<meta name="description" content="Cupones para ti y tu bebé, y panoramas para niños en Chile. Se actualiza todos los días.">
+<meta name="theme-color" content="#EFEDF8" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#15141D" media="(prefers-color-scheme: dark)">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Descubre">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="apple-touch-icon" href="/icon-180.png">
+<link rel="icon" type="image/png" href="/icon-192.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700;12..96,800&family=Nunito+Sans:opsz,wght@6..12,400;6..12,600;6..12,700;6..12,800&display=swap">
+<style>
+/* Layout: una columna tipo app (máx. 480px), cabecera editorial, filtros en chips y carriles horizontales, tarjetas tipo cupón y tarjetas de panorama, barra inferior flotante. */
+:root {
+  --bg: #EFEDF8;
+  --surface: #FFFFFF;
+  --ink: #1D1B29;
+  --muted: #6A6681;
+  --line: #E1DEEE;
+  --nav: #1D1B29;
+  --nav-ink: #FFFFFF;
+  --mint: #8FD0B5;
+  --mint-ink: #145A40;
+  --butter: #F7E8AE;
+  --butter-ink: #6B5410;
+  --lilac: #E6DAF7;
+  --lilac-ink: #5A3A8C;
+  --blush: #FCE1D6;
+  --blush-ink: #8A3B1E;
+  --sky: #DBEBF7;
+  --sky-ink: #1F4E74;
+  --rose: #F9DCE6;
+  --rose-ink: #8C2A4B;
+  --sage: #DDEFE3;
+  --sage-ink: #24593A;
+  --warn: #B4471E;
+  --shadow: 0 1px 2px rgba(40, 32, 80, .05), 0 8px 24px -12px rgba(40, 32, 80, .18);
+  --font-display: "Bricolage Grotesque", "Avenir Next", "Segoe UI", system-ui, sans-serif;
+  --font-body: "Nunito Sans", "Avenir Next", "Segoe UI", system-ui, sans-serif;
+  --r-lg: 28px;
+  --r-md: 20px;
+  --r-pill: 999px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #15141D; --surface: #211F2D; --ink: #F3F1FB; --muted: #A8A3C0; --line: #2F2C40;
+    --nav: #F3F1FB; --nav-ink: #1D1B29;
+    --mint: #6FBFA0; --mint-ink: #0D3B2A;
+    --butter: #3B3420; --butter-ink: #F2DC8E;
+    --lilac: #332A47; --lilac-ink: #D7C5F5;
+    --blush: #42291F; --blush-ink: #F7C2AA;
+    --sky: #1F3346; --sky-ink: #B8D8F2;
+    --rose: #432433; --rose-ink: #F5B8CD;
+    --sage: #1F362A; --sage-ink: #AEE0C2;
+    --warn: #F29B76;
+    --shadow: 0 1px 2px rgba(0,0,0,.3), 0 10px 26px -14px rgba(0,0,0,.6);
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #15141D; --surface: #211F2D; --ink: #F3F1FB; --muted: #A8A3C0; --line: #2F2C40;
+  --nav: #F3F1FB; --nav-ink: #1D1B29;
+  --mint: #6FBFA0; --mint-ink: #0D3B2A;
+  --butter: #3B3420; --butter-ink: #F2DC8E;
+  --lilac: #332A47; --lilac-ink: #D7C5F5;
+  --blush: #42291F; --blush-ink: #F7C2AA;
+  --sky: #1F3346; --sky-ink: #B8D8F2;
+  --rose: #432433; --rose-ink: #F5B8CD;
+  --sage: #1F362A; --sage-ink: #AEE0C2;
+  --warn: #F29B76;
+  --shadow: 0 1px 2px rgba(0,0,0,.3), 0 10px 26px -14px rgba(0,0,0,.6);
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+button, input { font: inherit; color: inherit; }
+button { cursor: pointer; }
+:focus-visible { outline: 3px solid var(--lilac-ink); outline-offset: 2px; }
+svg.i { width: 20px; height: 20px; flex: none; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+
+.app {
+  max-width: 480px;
+  margin: 0 auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 20px 132px;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+/* Cabecera */
+.head { display: flex; flex-direction: column; gap: 6px; padding-top: 8px; }
+.eyebrow {
+  font-size: 12px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: var(--muted);
+  display: flex; align-items: center; gap: 8px;
+}
+.eyebrow .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--mint); box-shadow: 0 0 0 4px color-mix(in srgb, var(--mint) 30%, transparent); }
+h1 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(34px, 9.4vw, 44px);
+  line-height: 1.02;
+  letter-spacing: -0.035em;
+  margin: 0;
+  text-wrap: balance;
+}
+h1 em { font-style: normal; color: var(--lilac-ink); }
+.stamp { font-size: 14px; color: var(--muted); margin: 2px 0 0; }
+
+/* Selector Cupones / Panoramas */
+.seg {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 4px;
+  background: var(--surface); border-radius: var(--r-pill); padding: 5px; box-shadow: var(--shadow);
+  position: relative;
+}
+.seg button {
+  border: 0; background: transparent; border-radius: var(--r-pill);
+  padding: 12px 10px; font-weight: 800; font-size: 15px;
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+  color: var(--muted); transition: background .25s, color .25s;
+}
+.seg button .count { font-size: 12px; font-weight: 800; padding: 1px 8px; border-radius: var(--r-pill); background: var(--bg); color: var(--muted); }
+.seg button[aria-selected="true"] { background: var(--nav); color: var(--nav-ink); }
+.seg button[aria-selected="true"] .count { background: color-mix(in srgb, var(--nav-ink) 16%, transparent); color: var(--nav-ink); }
+
+/* Búsqueda */
+.search { position: relative; }
+.search svg { position: absolute; left: 18px; top: 50%; transform: translateY(-50%); color: var(--muted); }
+.search input {
+  width: 100%; border: 1.5px solid transparent; background: var(--surface); border-radius: var(--r-pill);
+  padding: 15px 18px 15px 50px; font-size: 16px; box-shadow: var(--shadow);
+}
+.search input::placeholder { color: var(--muted); }
+.search input:focus { outline: none; border-color: var(--lilac-ink); }
+
+/* Secciones y chips */
+.block { display: flex; flex-direction: column; gap: 12px; }
+.block-h { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; }
+h2 {
+  font-family: var(--font-display); font-weight: 700; font-size: 22px; letter-spacing: -0.02em; margin: 0;
+}
+.link-btn { border: 0; background: none; padding: 4px 0; color: var(--mint-ink); font-weight: 800; font-size: 14px; }
+:root:not([data-theme="light"]) .link-btn { color: var(--mint-ink); }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip {
+  border: 1.5px solid var(--line); background: var(--surface); border-radius: var(--r-pill);
+  padding: 9px 15px; font-weight: 700; font-size: 14px; display: inline-flex; align-items: center; gap: 7px;
+  transition: background .2s, border-color .2s, color .2s;
+}
+.chip svg.i { width: 17px; height: 17px; }
+.chip[aria-pressed="true"] { background: var(--ink); border-color: var(--ink); color: var(--bg); }
+.chip.toggle[aria-pressed="true"] { background: var(--mint); border-color: var(--mint); color: var(--mint-ink); }
+
+/* Carril horizontal */
+.rail {
+  display: flex; gap: 10px; overflow-x: auto; scroll-snap-type: x proximity;
+  margin-inline: calc(-1 * max(16px, env(safe-area-inset-left, 0px)));
+  padding-inline: max(16px, env(safe-area-inset-left, 0px));
+  padding-block: 4px 10px;
+  scrollbar-width: none;
+}
+.rail::-webkit-scrollbar { display: none; }
+.tile {
+  scroll-snap-align: start; flex: none; width: 104px;
+  border: 2px solid transparent; background: var(--surface); border-radius: var(--r-md);
+  padding: 10px 10px 12px; display: flex; flex-direction: column; align-items: center; gap: 8px; text-align: center;
+  box-shadow: var(--shadow); transition: border-color .2s, transform .2s;
+}
+.tile:active { transform: scale(.97); }
+.tile .ic { width: 100%; aspect-ratio: 1.25; border-radius: 15px; display: grid; place-items: center; }
+.tile .ic svg.i { width: 30px; height: 30px; stroke-width: 1.6; }
+.tile .lb { font-size: 13px; font-weight: 700; line-height: 1.2; }
+.tile .n { font-size: 12px; color: var(--muted); font-weight: 700; }
+.tile[aria-pressed="true"] { border-color: var(--ink); }
+
+.t-butter { background: var(--butter); color: var(--butter-ink); }
+.t-lilac { background: var(--lilac); color: var(--lilac-ink); }
+.t-blush { background: var(--blush); color: var(--blush-ink); }
+.t-sky { background: var(--sky); color: var(--sky-ink); }
+.t-rose { background: var(--rose); color: var(--rose-ink); }
+.t-sage { background: var(--sage); color: var(--sage-ink); }
+
+/* Lista */
+.list { display: flex; flex-direction: column; gap: 14px; }
+.results-h { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; }
+.results-h .num { font-variant-numeric: tabular-nums; color: var(--muted); font-family: var(--font-display); font-weight: 600; }
+
+/* Cupón tipo ticket */
+.coupon {
+  display: grid; grid-template-columns: 112px 1fr; text-decoration: none; color: inherit;
+  background: var(--surface); border-radius: var(--r-md); box-shadow: var(--shadow);
+  position: relative; overflow: hidden; min-height: 148px;
+  transition: transform .2s;
+}
+.coupon:active { transform: scale(.985); }
+.stub {
+  display: flex; flex-direction: column; justify-content: center; gap: 4px; padding: 14px 12px 14px 16px;
+  position: relative;
+}
+.stub .big {
+  font-family: var(--font-display); font-weight: 800; letter-spacing: -0.04em; line-height: .95;
+  font-size: 30px; overflow-wrap: anywhere;
+}
+.stub .big.m { font-size: 22px; }
+.stub .big.s { font-size: 17px; letter-spacing: -0.02em; line-height: 1.1; }
+.stub .unit { font-size: 11px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; opacity: .8; }
+/* perforación */
+.coupon::before, .coupon::after {
+  content: ""; position: absolute; left: 103px; width: 18px; height: 18px; border-radius: 50%; background: var(--bg); z-index: 1;
+}
+.coupon::before { top: -9px; }
+.coupon::after { bottom: -9px; }
+.stub::after {
+  content: ""; position: absolute; right: 0; top: 14px; bottom: 14px; border-right: 2px dashed var(--surface); opacity: .9;
+}
+.body { padding: 14px 16px 14px 16px; display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.store { font-size: 12px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+.title { font-family: var(--font-display); font-weight: 700; font-size: 18px; line-height: 1.18; letter-spacing: -0.015em; margin: 0; text-wrap: balance; }
+.desc { font-size: 14px; color: var(--muted); margin: 0; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.meta { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 12px; margin-top: auto; padding-top: 4px; font-size: 13px; font-weight: 700; color: var(--muted); }
+.meta span { display: inline-flex; align-items: center; gap: 5px; }
+.meta svg.i { width: 15px; height: 15px; }
+.meta .soon { color: var(--warn); }
+.go { margin-left: auto; color: var(--ink); display: inline-flex; align-items: center; gap: 4px; }
+
+/* Panorama */
+.pano {
+  display: flex; flex-direction: column; gap: 10px; text-decoration: none; color: inherit;
+  border-radius: var(--r-lg); padding: 18px 18px 16px; box-shadow: var(--shadow); transition: transform .2s;
+}
+.pano:active { transform: scale(.985); }
+.pano .top { display: flex; align-items: center; gap: 10px; }
+.pano .badge { width: 40px; height: 40px; border-radius: 50%; background: var(--surface); display: grid; place-items: center; flex: none; }
+.pano .kind { font-size: 12px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
+.price {
+  margin-left: auto; font-size: 13px; font-weight: 800; padding: 5px 12px; border-radius: var(--r-pill);
+  background: var(--surface); color: var(--ink); max-width: 46%; text-align: center; line-height: 1.25;
+}
+.price.free { background: var(--mint); color: var(--mint-ink); }
+.pano .title { font-size: 22px; color: var(--ink); }
+.pano .place { font-size: 14px; font-weight: 700; margin-top: -6px; opacity: .85; }
+.pano .desc { color: var(--ink); opacity: .78; -webkit-line-clamp: 3; }
+
+/* Regla de edades 0–12 */
+.ages { display: flex; flex-direction: column; gap: 6px; background: color-mix(in srgb, var(--surface) 70%, transparent); border-radius: 14px; padding: 10px 12px 8px; }
+.ages-h { display: flex; justify-content: space-between; font-size: 13px; font-weight: 800; color: var(--ink); }
+.ages-h small { font-weight: 700; color: var(--muted); font-size: 12px; }
+.track { position: relative; height: 8px; border-radius: 4px; background: color-mix(in srgb, var(--ink) 10%, transparent); }
+.fill { position: absolute; top: 0; bottom: 0; border-radius: 4px; background: currentColor; }
+.ticks { display: flex; justify-content: space-between; font-size: 10px; font-weight: 700; color: var(--muted); font-variant-numeric: tabular-nums; }
+
+.pano .meta { color: var(--ink); opacity: .82; padding-top: 0; }
+.pano .meta span { min-width: 0; }
+
+.empty {
+  text-align: center; padding: 34px 20px; background: var(--surface); border-radius: var(--r-lg); color: var(--muted);
+  display: flex; flex-direction: column; align-items: center; gap: 10px;
+}
+.empty strong { font-family: var(--font-display); font-size: 19px; color: var(--ink); }
+
+.note { font-size: 12px; color: var(--muted); text-align: center; margin: 4px 0 0; }
+
+/* Barra inferior */
+.nav-wrap {
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 20; pointer-events: none;
+  padding: 0 max(16px, env(safe-area-inset-right, 0px)) calc(14px + env(safe-area-inset-bottom, 0px)) max(16px, env(safe-area-inset-left, 0px));
+}
+.nav {
+  pointer-events: auto; max-width: 448px; margin: 0 auto; background: var(--nav); border-radius: var(--r-pill);
+  padding: 7px; display: flex; gap: 4px; align-items: center; justify-content: space-between;
+  box-shadow: 0 14px 30px -12px rgba(20, 16, 40, .45);
+}
+.nav button {
+  border: 0; height: 50px; min-width: 50px; border-radius: var(--r-pill); display: flex; align-items: center; justify-content: center; gap: 8px;
+  background: transparent; color: color-mix(in srgb, var(--nav-ink) 62%, transparent); padding: 0 14px; font-weight: 800; font-size: 14px;
+}
+.nav button[aria-current="page"] { background: var(--mint); color: var(--mint-ink); flex: 1 1 auto; max-width: 160px; }
+.nav button .lbl { display: none; }
+.nav button[aria-current="page"] .lbl { display: inline; }
+.nav svg.i { width: 22px; height: 22px; }
+
+.view { display: flex; flex-direction: column; gap: 22px; }
+.view[hidden] { display: none !important; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .list > * { animation: rise .35s ease both; }
+  @keyframes rise { from { transform: translateY(6px); opacity: .4; } to { transform: none; opacity: 1; } }
+}
+@media (max-width: 360px) {
+  .coupon { grid-template-columns: 96px 1fr; }
+  .coupon::before, .coupon::after { left: 87px; }
+}
+html { padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); }
+body { margin: 0; }
+.app { padding-block: 20px 40px; }
+.stamp.loading::after { content: " · buscando novedades…"; }
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></symbol>
+    <symbol id="i-ticket" viewBox="0 0 24 24"><path d="M3 8a2 2 0 0 0 2-2h14a2 2 0 0 0 2 2v2a2 2 0 0 0 0 4v2a2 2 0 0 0-2 2H5a2 2 0 0 0-2-2v-2a2 2 0 0 0 0-4z"/><path d="M14 6v12" stroke-dasharray="2 2.5"/></symbol>
+    <symbol id="i-balloon" viewBox="0 0 24 24"><path d="M12 15c3.3 0 6-3 6-6.5S15.3 2 12 2 6 5 6 8.5 8.7 15 12 15z"/><path d="m11 15 1 2 1-2"/><path d="M12 17c0 2-2 2.5-2 5"/></symbol>
+    <symbol id="i-baby" viewBox="0 0 24 24"><circle cx="12" cy="9" r="5"/><path d="M10 9h.01M14 9h.01"/><path d="M10.5 11.2c.9.6 2.1.6 3 0"/><path d="M12 4c0-1 1-2 2-1.5"/><path d="M7 21c.5-3 2.6-5 5-5s4.5 2 5 5"/></symbol>
+    <symbol id="i-woman" viewBox="0 0 24 24"><circle cx="12" cy="7" r="4"/><path d="M8 7c0 3-1 5-2 6 2 .5 4 0 6-1 2 1 4 1.5 6 1-1-1-2-3-2-6"/><path d="M6 21c.6-3 3-5 6-5s5.4 2 6 5"/></symbol>
+    <symbol id="i-all" viewBox="0 0 24 24"><rect x="4" y="4" width="7" height="7" rx="2"/><rect x="13" y="4" width="7" height="7" rx="2"/><rect x="4" y="13" width="7" height="7" rx="2"/><rect x="13" y="13" width="7" height="7" rx="2"/></symbol>
+    <symbol id="i-diaper" viewBox="0 0 24 24"><path d="M3 7h18v2.5c0 5-4 9-9 9s-9-4-9-9z"/><path d="M3 9.5c3 0 4.5 1.5 5.5 4M21 9.5c-3 0-4.5 1.5-5.5 4"/><path d="M7 7v-.5M17 7v-.5"/></symbol>
+    <symbol id="i-bottle" viewBox="0 0 24 24"><path d="M10 2h4M10.5 2v2.5L9 6h6l-1.5-1.5V2"/><rect x="7.5" y="6" width="9" height="16" rx="3"/><path d="M7.5 11h3M7.5 14.5h3M7.5 18h3"/></symbol>
+    <symbol id="i-onesie" viewBox="0 0 24 24"><path d="M9 3a3 3 0 0 0 6 0l5 3-2 4-2-1v6l-2 4h-4l-2-4V9l-2 1-2-4z"/></symbol>
+    <symbol id="i-stroller" viewBox="0 0 24 24"><path d="M4 5h3l1.5 9h10"/><path d="M8.2 12A7 7 0 0 1 15 4h1v8"/><circle cx="9" cy="19" r="2"/><circle cx="17" cy="19" r="2"/></symbol>
+    <symbol id="i-bump" viewBox="0 0 24 24"><circle cx="11" cy="4.5" r="2.5"/><path d="M9.5 9 8 15l2 .5-1 6.5M12.5 9c2.5 1 4.5 3 4.5 5.5S15 18 13 18l.5 4"/><path d="M11 13.5c.8.5 1.8.5 2.5 0"/></symbol>
+    <symbol id="i-sparkle" viewBox="0 0 24 24"><path d="M12 3c.6 4.2 2.8 6.4 7 7-4.2.6-6.4 2.8-7 7-.6-4.2-2.8-6.4-7-7 4.2-.6 6.4-2.8 7-7z"/><path d="M19 16c.2 1.6 1 2.4 2.5 2.6-1.5.2-2.3 1-2.5 2.4-.2-1.4-1-2.2-2.5-2.4 1.5-.2 2.3-1 2.5-2.6z"/></symbol>
+    <symbol id="i-dress" viewBox="0 0 24 24"><path d="M9 2v4l-2 4 2 2-4 10h14l-4-10 2-2-2-4V2"/><path d="M9 6h6"/></symbol>
+    <symbol id="i-health" viewBox="0 0 24 24"><path d="M12 21s-8-4.5-8-11a4.5 4.5 0 0 1 8-2.8A4.5 4.5 0 0 1 20 10c0 6.5-8 11-8 11z"/><path d="M12 10v5M9.5 12.5h5"/></symbol>
+    <symbol id="i-landmark" viewBox="0 0 24 24"><path d="M3 21h18M4 10h16M12 3 4 7.5V10h16V7.5z"/><path d="M6 10v8M10 10v8M14 10v8M18 10v8M4 18h16"/></symbol>
+    <symbol id="i-tag" viewBox="0 0 24 24"><path d="M3 12V4a1 1 0 0 1 1-1h8l9 9-9 9z"/><circle cx="7.5" cy="7.5" r="1.5"/></symbol>
+    <symbol id="i-cup" viewBox="0 0 24 24"><path d="M4 9h13v5a6 6 0 0 1-6 6h-1a6 6 0 0 1-6-6z"/><path d="M17 11h1.5a2.5 2.5 0 0 1 0 5H17"/><path d="M8 3c-.6 1 .6 2 0 3M12 3c-.6 1 .6 2 0 3"/></symbol>
+    <symbol id="i-tree" viewBox="0 0 24 24"><path d="M12 22v-6"/><path d="M12 16H7a4 4 0 0 1-1-7.9A5 5 0 0 1 12 3a5 5 0 0 1 6 5.1A4 4 0 0 1 17 16z"/><path d="m12 13 2.5-2.5"/></symbol>
+    <symbol id="i-museum" viewBox="0 0 24 24"><path d="M3 21h18M12 3l9 5H3z"/><path d="M5 11v7M9.5 11v7M14.5 11v7M19 11v7"/></symbol>
+    <symbol id="i-book" viewBox="0 0 24 24"><path d="M12 6.5C10 5 7 4.5 3 5v14c4-.5 7 0 9 1.5 2-1.5 5-2 9-1.5V5c-4-.5-7 0-9 1.5z"/><path d="M12 6.5v14"/></symbol>
+    <symbol id="i-brush" viewBox="0 0 24 24"><path d="M14.5 4.5 19.5 9.5 11 18l-5-5z"/><path d="M6 13c-2 0-3 1.5-3 3.5S2 20 2 20s3.5.5 5.5-1.5S8 15 8 15"/><path d="m16 3 5 5"/></symbol>
+    <symbol id="i-star" viewBox="0 0 24 24"><path d="m12 3 2.7 5.6 6.1.8-4.5 4.2 1.1 6-5.4-3-5.4 3 1.1-6L3.2 9.4l6.1-.8z"/></symbol>
+    <symbol id="i-puzzle" viewBox="0 0 24 24"><path d="M5 8h3a2 2 0 1 1 4 0h3v3a2 2 0 1 1 0 4v4H5v-4a2 2 0 1 0 0-4z"/><path d="M15 11h2a2 2 0 1 1 0 4h-2"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 22s7-6.3 7-12a7 7 0 0 0-14 0c0 5.7 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+    <symbol id="i-cal" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></symbol>
+    <symbol id="i-home" viewBox="0 0 24 24"><path d="M3 11 12 4l9 7"/><path d="M5 9.5V20h5v-5h4v5h5V9.5"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><path d="m8 12 3 3 5-6"/></symbol>
+    <symbol id="i-compass" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m15.5 8.5-2 5-5 2 2-5z"/></symbol>
+    <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c.8-4 4-6 8-6s7.2 2 8 6"/></symbol>
+    <symbol id="i-gift" viewBox="0 0 24 24"><rect x="3" y="8" width="18" height="4" rx="1"/><path d="M5 12v9h14v-9M12 8v13"/><path d="M12 8C10 8 7 7.5 7 5.5S10 4 12 8c2-4 5-4.5 5-2.5S14 8 12 8z"/></symbol>
+  </defs>
+</svg>
+
+<main class="app" id="app">
+  <header class="head">
+    <div class="eyebrow"><span class="dot" aria-hidden="true"></span><span>Descubre</span></div>
+    <h1 id="h1">Cupones para ti <em>y tu bebé</em></h1>
+    <p class="stamp" id="stamp"></p>
+  </header>
+
+  <div class="seg" role="tablist" aria-label="Sección">
+    <button role="tab" id="tab-cupones" aria-selected="true" aria-controls="view-cupones"><svg class="i"><use href="#i-ticket"/></svg>Cupones <span class="count" id="c-cupones"></span></button>
+    <button role="tab" id="tab-panoramas" aria-selected="false" aria-controls="view-panoramas"><svg class="i"><use href="#i-balloon"/></svg>Panoramas <span class="count" id="c-panoramas"></span></button>
+  </div>
+
+  <!-- CUPONES -->
+  <section class="view" id="view-cupones" role="tabpanel" aria-labelledby="tab-cupones">
+    <label class="search">
+      <svg class="i" aria-hidden="true"><use href="#i-search"/></svg>
+      <input id="q" type="search" placeholder="Busca pañales, farmacias, ropa…" aria-label="Buscar cupones" autocomplete="off">
+    </label>
+
+    <div class="chips" id="aud" role="group" aria-label="¿Para quién?"></div>
+
+    <div class="block">
+      <div class="block-h"><h2>Categorías</h2><button class="link-btn" id="cat-clear" hidden>Quitar filtro</button></div>
+      <div class="rail" id="cats" role="group" aria-label="Categorías"></div>
+    </div>
+
+    <div class="block">
+      <div class="results-h"><h2>Cupones vigentes</h2><span class="num" id="d-num"></span></div>
+      <div class="list" id="deals"></div>
+    </div>
+  </section>
+
+  <!-- PANORAMAS -->
+  <section class="view" id="view-panoramas" role="tabpanel" aria-labelledby="tab-panoramas" hidden>
+    <div class="block">
+      <h2>¿Para qué edad?</h2>
+      <div class="chips" id="age" role="group" aria-label="Edad"></div>
+    </div>
+    <div class="block">
+      <h2>¿Dónde?</h2>
+      <div class="chips" id="zone" role="group" aria-label="Zona"></div>
+    </div>
+    <div class="block">
+      <div class="block-h"><h2>Tipo de panorama</h2><button class="link-btn" id="kind-clear" hidden>Quitar filtro</button></div>
+      <div class="rail" id="kinds" role="group" aria-label="Tipo"></div>
+    </div>
+    <div class="block">
+      <div class="results-h"><h2>Panoramas</h2><span class="num" id="p-num"></span></div>
+      <div class="list" id="panos"></div>
+    </div>
+  </section>
+
+  <p class="note">Información de páginas públicas. Revisa siempre las condiciones en el sitio de cada lugar.</p>
+</main>
+
+
+<script>
+let DEALS_META = {"updatedAt": "2026-10-16T10:07:24.443Z", "deals": [{"id": "salcobrand-club-bebe", "title": "Hasta 20% en productos de bebé", "store": "Farmacias Salcobrand · Club Bebé", "description": "Descuento en productos de bebé para afiliados a Caja Los Andes que usen el convenio Club Bebé de Salcobrand.", "discount": "Hasta 20%", "region": "Todo Chile", "category": "Artículos bebé", "url": "https://masbeneficios.cajalosandes.cl/bebe-convenio?beneficio=farmacias-salcobrand---club-bebe-desc-hasta-20-dcto", "expiresAt": "2026-12-31", "audience": "bebe"}, {"id": "ahumada-club-mi-bebe", "title": "Club Mi Bebé: cupón de bienvenida", "store": "Farmacias Ahumada", "description": "Programa gratuito desde el embarazo: cupón de 20% en productos seleccionados, misiones mensuales con cupones y despacho gratis en compras de bebé sobre $29.990.", "discount": "20% bienvenida", "region": "Todo Chile", "category": "Artículos bebé", "url": "https://www.farmaciasahumada.cl/club-bebe.html", "expiresAt": null, "audience": "bebe"}, {"id": "cruzverde-genericos-cajalosandes", "title": "45% en medicamentos genéricos", "store": "Farmacia Cruz Verde", "description": "Descuento en medicamentos genéricos para afiliados a Caja Los Andes.", "discount": "45% dcto", "region": "Todo Chile", "category": "Salud", "url": "https://masbeneficios.cajalosandes.cl/salud-convenio?beneficio=farmacia-cruz-verde-desc-45-dcto&idc=RoR&idb=kmY", "expiresAt": "2026-12-31", "audience": "mujer"}, {"id": "happy-mom-achs", "title": "20% en productos de bebé", "store": "Happy Mom Chile · Mundo ACHS", "description": "Descuento para trabajadores afiliados a ACHS, con despacho a todo Chile por Correos de Chile.", "discount": "20% dcto", "region": "Todo Chile", "category": "Artículos bebé", "url": "https://mundoachs.cl/descuento/happy-mom-chile", "expiresAt": "2027-04-30", "audience": "bebe"}, {"id": "unimarc-babysec-xxxg", "title": "Pañales Babysec Super Premium XXXG 108 u.", "store": "Unimarc", "description": "Precio oferta $30.390 (normal $44.690). También XXG 112 u. a $30.390. Revisa disponibilidad en tu local.", "discount": "32% dcto", "region": "Todo Chile", "category": "Pañales", "url": "https://www.unimarc.cl/brand/babysec", "expiresAt": null, "audience": "bebe"}, {"id": "jumbo-babysec-xxg", "title": "Pañales Babysec Super Premium XXG 112 u.", "store": "Jumbo", "description": "Precio oferta $30.893 (normal $41.190). También Babysec Voy a Dormir S/M a $9.190.", "discount": "25% dcto", "region": "Todo Chile", "category": "Pañales", "url": "https://www.jumbo.cl/bebe-y-jugueteria/bebe", "expiresAt": null, "audience": "bebe"}, {"id": "lider-babysec", "title": "Pañales Babysec Súper Premium XXG 100 u.", "store": "Lider", "description": "Pack de 100 unidades a $29.990 en el supermercado online.", "discount": "$29.990", "region": "Todo Chile", "category": "Pañales", "url": "https://super.lider.cl/v/panales-babysec", "expiresAt": null, "audience": "bebe"}, {"id": "ajuar-chile-crece-contigo", "title": "Ajuar de bienvenida gratis", "store": "Chile Crece Contigo", "description": "Si tu hijo nace en un hospital público recibes cuna corral, colchón, portabebé, cojín de lactancia, mudador, ropa básica y material de estimulación.", "discount": "Gratis", "region": "Todo Chile", "category": "Beneficio estatal", "url": "https://www.elmostrador.cl/datos-utiles/2026/07/03/si-tu-hijo-nace-en-hospital-publico-te-corresponde-este-kit-gratuito-que-pasara-tras-el-recorte/", "expiresAt": null, "audience": "bebe"}, {"id": "asignacion-maternal", "title": "Asignación Maternal: hasta $22.007 al mes", "store": "Caja de compensación / IPS", "description": "Para trabajadoras embarazadas según tramo de ingreso. Se pide desde el 5° mes de gestación y se paga en forma retroactiva.", "discount": "Hasta $22.007/mes", "region": "Todo Chile", "category": "Embarazo", "url": "https://www.biobiochile.cl/noticias/servicios/beneficios/2026/08/10/embarazadas-pueden-recibir-hasta-22-mil-al-mes-asi-se-obtiene-la-asignacion-maternal.shtml", "expiresAt": null, "audience": "mujer"}, {"id": "subsidio-maternal", "title": "Subsidio Maternal desde el 5° mes", "store": "Chile Crece Contigo · IPS", "description": "Para embarazadas del 60% de menores recursos según el Registro Social de Hogares. Lo paga el IPS a través de Caja Los Héroes.", "discount": "Subsidio", "region": "Todo Chile", "category": "Beneficio estatal", "url": "https://www.crececontigo.gob.cl/faqs/cuales-son-los-requisitos-para-el-suf-maternal/", "expiresAt": null, "audience": "mujer"}, {"id": "bono-natalidad-cajas-compensacion", "title": "Bono por nacimiento de un hijo", "store": "Cajas de compensación (Los Héroes, 18, otras)", "description": "Aporte único para afiliados por el nacimiento de un hijo; el monto varía según la caja. Se solicita dentro de 120 días desde el nacimiento, o con certificado de embarazo desde el séptimo mes. Confirma montos en tu caja.", "discount": "Bono único", "region": "Todo Chile", "category": "Embarazo", "url": "https://www.meganoticias.cl/dato-util/528285-bono-natalidad-cajas-compensacion-montos-requisitos-31-07-2026.html", "expiresAt": null, "audience": "mujer"}, {"id": "paris-silla-auto-supra-360", "title": "Silla de auto convertible Supra 360° Bebesit", "store": "Paris", "description": "Precio oferta $109.990 (normal $369.990) en la web de Paris. Verifica stock y vigencia antes de comprar.", "discount": "70% dcto", "region": "Todo Chile", "category": "Artículos bebé", "url": "https://www.paris.cl/silla-de-auto-convertible-supra-360-gris-claro-MKZHP1IFZG.html", "expiresAt": null, "audience": "bebe"}, {"id": "lider-extractor-momcozy", "title": "Extractor de leche eléctrico doble Momcozy", "store": "Lider", "description": "Precio oferta $319.990 (antes $399.990). Puntos Mi Club al pagar con Tarjeta Lider Bci.", "discount": "20% dcto", "region": "Todo Chile", "category": "Embarazo", "url": "https://www.lider.cl/ip/lactancia/extractor-de-leche-materna-doble-air-1/00045006867914", "expiresAt": null, "audience": "mujer"}, {"id": "lider-extractores-balia", "title": "Extractores de leche en rebaja (Balia y otros)", "store": "Lider", "description": "Extractor Balia a $49.990 (antes $99.990) y otros modelos rebajados en la categoría de lactancia. Revisa disponibilidad.", "discount": "50% dcto", "region": "Todo Chile", "category": "Embarazo", "url": "https://www.lider.cl/browse/mundo-bebe/lactancia/extractores-de-leche/40094495_51094991_65672745", "expiresAt": null, "audience": "mujer"}, {"id": "mamografia-fonasa-gratis", "title": "Mamografía gratis en la red pública", "store": "ChileAtiende · Fonasa", "description": "Usuarias de Fonasa acceden a mamografía sin costo en su CESFAM, sin orden médica. Entre 50 y 59 años, una gratis cada 3 años (Fonasa o isapre).", "discount": "Gratis", "region": "Todo Chile", "category": "Salud", "url": "https://www.chileatiende.gob.cl/fichas/15852-prevenir-y-tratar-el-cancer-de-mama%C2%A0", "expiresAt": null, "audience": "mujer"}, {"id": "pap-ges-gratuito", "title": "PAP gratuito para mujeres de 25 a 64 años", "store": "Fonasa · GES", "description": "Examen de Papanicolaou cubierto por GES en la red pública para mujeres de 25 a 64 años. Confirma en tu CESFAM.", "discount": "Gratis", "region": "Todo Chile", "category": "Salud", "url": "https://cuantomecuesta.com/cl/ginecologo/", "expiresAt": null, "audience": "mujer"}, {"id": "bono-por-hijo-pgu", "title": "Bono por Hijo para madres desde los 65 años", "store": "ChileAtiende · IPS", "description": "Bonificación estatal por cada hijo nacido vivo o adoptado: 10% de 18 ingresos mínimos. Para madres de 65 años o más que reciben PGU; se solicita con ClaveÚnica.", "discount": "10% de 18 sueldos mínimos", "region": "Todo Chile", "category": "Beneficio estatal", "url": "https://www.chileatiende.gob.cl/fichas/5194/1/pdf", "expiresAt": null, "audience": "mujer"}, {"id": "falabella-silla-auto-saturn", "title": "Silla de auto Bebesit Saturn 360° Isofix", "store": "Falabella", "description": "Precio oferta $84.990 (antes $219.990) en Mundo Bebé de Falabella.com. Verifica stock y vigencia.", "discount": "61% dcto", "region": "Todo Chile", "category": "Artículos bebé", "url": "https://www.falabella.com/falabella-cl/collection/mundo-bebe", "expiresAt": null, "audience": "bebe"}, {"id": "cruzverde-bancochile-25", "title": "25% en medicamentos y vitaminas", "store": "Farmacias Cruz Verde · Banco de Chile", "description": "Descuento en medicamentos y vitaminas para clientes con tarjetas Banco de Chile, hasta el 15 de febrero de 2027.", "discount": "25% dcto", "region": "Todo Chile", "category": "Salud", "url": "https://sitiospublicos.bancochile.cl/personas/beneficios/detalle/farmacias-cruz-verde", "expiresAt": "2027-02-15", "audience": "mujer"}]};
+let DEALS = DEALS_META.deals;
+let PANOS_META = {"updatedAt": "2026-10-16T10:36:33.121Z", "panoramas": [{"id": "cafetin-de-virgilio", "title": "Café con Play Zone", "place": "El Cafetín de Virgilio", "kind": "Cafetería con juegos", "description": "Café de especialidad con zona de juegos de piso de goma eva, visible desde las mesas, y menú infantil. Wifi y enchufes para los adultos.", "ageMin": 1, "ageMax": 6, "region": "Santiago (RM)", "address": "Virgilio Figueroa 6641, Las Condes", "price": "Consultar", "when": "Consultar horario", "endsAt": null, "url": "https://www.lanacion.cl/que-hacer-en-santiago-las-mejores-cafeterias-para-ir-con-ninos/"}, {"id": "chococafe-providencia", "title": "Cafetería con piscina de pelotas", "place": "ChocoCafé", "kind": "Cafetería con juegos", "description": "Segundo piso de juegos con resbalín, piscina de pelotas, rampa para escalar y carrusel.", "ageMin": 1, "ageMax": 7, "region": "Santiago (RM)", "address": "Alférez Real 1351, Providencia", "price": "Juegos por consumo", "when": "Mar a dom 12:00–21:00", "endsAt": null, "url": "https://www.lanacion.cl/que-hacer-en-santiago-las-mejores-cafeterias-para-ir-con-ninos/"}, {"id": "aqui-me-quedo-la-florida", "title": "Café con juegos de roles", "place": "Aquí me Quedo", "kind": "Cafetería con juegos", "description": "Estaciones de juego de roles (minimarket, veterinaria, cocina, taller) y un sector aparte para los más pequeños. Tiene estacionamiento.", "ageMin": 1, "ageMax": 8, "region": "Santiago (RM)", "address": "Rojas Magallanes 1224, La Florida", "price": "Consultar", "when": "Consultar horario", "endsAt": null, "url": "https://www.lanacion.cl/que-hacer-en-santiago-las-mejores-cafeterias-para-ir-con-ninos/"}, {"id": "casa-tateti-la-reina", "title": "Café con cama elástica y patio", "place": "Casa Tateti", "kind": "Cafetería con juegos", "description": "Cama elástica, juguetes y espacios de juego interiores y al aire libre, con zona de trabajo para adultos.", "ageMin": 1, "ageMax": 8, "region": "Santiago (RM)", "address": "Av. Echeñique 6705, La Reina", "price": "Consultar", "when": "Consultar horario", "endsAt": null, "url": "https://www.lanacion.cl/que-hacer-en-santiago-las-mejores-cafeterias-para-ir-con-ninos/"}, {"id": "guaguateca-biblioteca-santiago", "title": "Guaguateca: espacio para bebés", "place": "Biblioteca de Santiago", "kind": "Biblioteca", "description": "Espacio gratuito con libros, árboles sensoriales, títeres y disfraces. Cuentacuentos para bebés y talleres de estimulación temprana.", "ageMin": 0, "ageMax": 4, "region": "Santiago (RM)", "address": "Matucana 151, Santiago", "price": "Gratis", "when": "Mar a vie 11:00–19:15 · sáb y dom 11:30–17:00", "endsAt": null, "url": "https://www.bibliotecaspublicas.gob.cl/noticias/biblioteca-de-santiago-crea-nueva-y-mas-grande-guaguateca"}, {"id": "feria-quinta-lectores", "title": "Feria del libro Quinta Lectores", "place": "Biblioteca Marta Ugarte Román, Quinta Normal", "kind": "Evento", "description": "Teatro musical, cuentacuentos, talleres, conciertos y teatro de sombras para toda la familia.", "ageMin": 2, "ageMax": 12, "region": "Santiago (RM)", "address": "Quinta Normal", "price": "Gratis", "when": "Domingo 18 oct, 11:00–21:00", "endsAt": "2026-10-18", "url": "https://www.meteored.cl/noticias/ocio/que-hacer-en-santiago-este-fin-de-semana-los-mejores-panoramas-del-16-al-18-de-octubre.html"}, {"id": "open-house-santiago-2026", "title": "Festival Open House Santiago", "place": "Varios lugares de la RM", "kind": "Evento", "description": "Recorridos y actividades gratuitas por edificios y barrios de Santiago. Algunas requieren inscripción previa.", "ageMin": 6, "ageMax": 12, "region": "Santiago (RM)", "address": null, "price": "Gratis", "when": "15 al 25 de octubre", "endsAt": "2026-10-25", "url": "https://www.meteored.cl/noticias/ocio/que-hacer-en-santiago-este-fin-de-semana-los-mejores-panoramas-del-16-al-18-de-octubre.html"}, {"id": "museo-historia-natural", "title": "Dinosaurios y fósiles", "place": "Museo Nacional de Historia Natural", "kind": "Museo", "description": "400 millones de años de evolución con contenidos pensados para niños. Después, pícnic en el Parque Quinta Normal.", "ageMin": 3, "ageMax": 12, "region": "Santiago (RM)", "address": "Parque Quinta Normal, Santiago", "price": "Gratis", "when": "Mar a dom", "endsAt": null, "url": "https://www.mnhn.gob.cl/"}, {"id": "flora-y-fauna-cafe-vina", "title": "Cafetería familiar con juegos", "place": "Flora y Fauna Café", "kind": "Cafetería con juegos", "description": "Cafetería familiar con zona de juegos para niños y espacios cómodos para los adultos.", "ageMin": 1, "ageMax": 6, "region": "Valparaíso", "address": "4 Oriente 318, Viña del Mar", "price": "Por consumo", "when": "Lun a sáb 10:30–19:00", "endsAt": null, "url": "https://www.instagram.com/florayfaunacafe/"}, {"id": "jardin-encantado-concon", "title": "Stay & Play Café", "place": "Jardín Encantado", "kind": "Cafetería con juegos", "description": "Cafetería familiar con casita de juegos para niños y espacios para celebraciones.", "ageMin": 1, "ageMax": 6, "region": "Valparaíso", "address": "Concón", "price": "Consultar", "when": "Consultar horario", "endsAt": null, "url": "https://www.facebook.com/jardinencantadochile/"}, {"id": "museo-baburizza", "title": "Museo con entrada liberada para niños", "place": "Museo de Bellas Artes Baburizza", "kind": "Museo", "description": "Museo en el cerro Alegre con cuentacuentos y talleres infantiles. Entrada liberada para menores de 12 años.", "ageMin": 3, "ageMax": 12, "region": "Valparaíso", "address": "Cerro Alegre, Valparaíso", "price": "Gratis menores de 12", "when": "Mar a dom", "endsAt": null, "url": "https://umatu.cl/paseos-en-valparaiso-con-ninos/"}, {"id": "parques-croacia-almejas", "title": "Parques con juegos frente al mar", "place": "Parque Croacia y Parque Las Almejas", "kind": "Parque", "description": "Áreas verdes, juegos infantiles y paseo con vista al Pacífico, al sur del Balneario Municipal.", "ageMin": 0, "ageMax": 12, "region": "Antofagasta", "address": "Costanera sur, Antofagasta", "price": "Gratis", "when": "Todos los días", "endsAt": null, "url": "https://madero.cl/dia-del-nino-el-norte-se-llena-de-panoramas-gratuitos-y-familiares-este-fin-de-semana/"}, {"id": "big-bang-park-la-serena", "title": "Parque de entretención y ciencia", "place": "Big Bang Park", "kind": "Juegos y entretención", "description": "Parque que combina juegos y aprendizaje para toda la familia.", "ageMin": 3, "ageMax": 12, "region": "Coquimbo", "address": "La Serena", "price": "Pagado", "when": "Consultar horario", "endsAt": null, "url": "https://madero.cl/dia-del-nino-el-norte-se-llena-de-panoramas-gratuitos-y-familiares-este-fin-de-semana/"}, {"id": "obstacool-park-concepcion", "title": "Trampolines y circuitos inflables", "place": "Obstacool Park", "kind": "Juegos y entretención", "description": "Trampolines, camas elásticas, muros de escalada y circuitos inflables para gastar energía.", "ageMin": 4, "ageMax": 12, "region": "Biobío", "address": "Concepción", "price": "Pagado", "when": "Consultar horario", "endsAt": null, "url": "https://www.tvn.cl/ntv/que-sucede/noticias-destacadas/mas-de-10-panoramas-para-el-dia-de-la-ninez-2026-en-regiones"}, {"id": "selva-aventura-cafe-nunoa", "title": "Café temático con salitas de juego", "place": "Selva Aventura Café", "kind": "Cafetería con juegos", "description": "Cafetería temática con salas de juegos infantiles y áreas verdes, pensada para ir con los hijos.", "ageMin": 1, "ageMax": 8, "region": "Santiago (RM)", "address": "Ñuñoa", "price": "Consultar", "when": "Consultar horario", "endsAt": null, "url": "https://www.encancha.cl/enlahora/panoramas/2025/12/11/esta-cafeteria-ubicada-en-santiago-es-perfecta-para-visitar-durante-el-fin-de-semana-con-ninos/"}, {"id": "gluck-juegos-cafe-vitacura", "title": "Sala de juegos con café para adultos", "place": "Glück Juegos & Café", "kind": "Cafetería con juegos", "description": "Sala de juegos supervisada por el personal mientras los adultos toman café. Se paga entrada por cada niño.", "ageMin": 1, "ageMax": 8, "region": "Santiago (RM)", "address": "Vitacura", "price": "Consultar", "when": "Consultar horario", "endsAt": null, "url": "https://www.afar.com/places/gluck-juegos-and-cafe-vitacura?p=5"}, {"id": "plaza-acevedo-dinosaurios-concepcion", "title": "Plaza de los dinosaurios", "place": "Plaza Acevedo", "kind": "Parque", "description": "Réplicas de dinosaurios a tamaño real (T-Rex, Diplodocus, pterodáctilo) y juegos como muros de escalada. El Museo de Historia Natural queda en la misma plaza.", "ageMin": 0, "ageMax": 12, "region": "Biobío", "address": "Plaza Acevedo, Concepción", "price": "Gratis", "when": "Consultar horario", "endsAt": null, "url": "https://www.uber.com/es-CL/blog/actividades-para-ninos-en-concepcion"}, {"id": "museo-regional-araucania-temuco", "title": "Museo con actividades para niños", "place": "Museo Regional de La Araucanía", "kind": "Museo", "description": "Museo con talleres, visitas guiadas y espectáculos para niños; la programación cambia, conviene revisarla antes de ir.", "ageMin": 3, "ageMax": 12, "region": "Araucanía", "address": "Alemania 084, Temuco", "price": "Consultar", "when": "Consultar horario", "endsAt": null, "url": "https://www.uber.com/es-CL/blog/actividades-para-ninos-en-temuco"}, {"id": "biblioteca-gabriela-mistral-la-serena", "title": "Cuentos en la sala infantil", "place": "Biblioteca Regional Gabriela Mistral", "kind": "Biblioteca", "description": "Sala infantil con cuentos y dinámicas para niños (los \"Biblioviernes\").", "ageMin": 3, "ageMax": 10, "region": "Coquimbo", "address": "La Serena", "price": "Consultar", "when": "Consultar horario", "endsAt": null, "url": "https://www.radioagricultura.cl/dato-practico/2023/08/04/listos-para-el-dia-del-nino-conoce-los-imperdibles-panoramas-gratuitos-en-regiones/"}, {"id": "biblioteca-regional-antofagasta", "title": "Hora del Cuento", "place": "Biblioteca Regional de Antofagasta", "kind": "Biblioteca", "description": "Hora del Cuento y talleres para niños en la biblioteca.", "ageMin": 3, "ageMax": 10, "region": "Antofagasta", "address": "Antofagasta", "price": "Consultar", "when": "Consultar horario", "endsAt": null, "url": "https://www.radioagricultura.cl/dato-practico/2023/08/04/listos-para-el-dia-del-nino-conoce-los-imperdibles-panoramas-gratuitos-en-regiones/"}, {"id": "museo-interactivo-mirador", "title": "Museo interactivo de ciencias", "place": "Museo Interactivo Mirador (MIM)", "kind": "Museo", "description": "Museo de ciencias interactivo para explorar en familia. Menores de 2 años entran gratis; menores de 14 deben ir con un adulto.", "ageMin": 2, "ageMax": 12, "region": "Santiago (RM)", "address": "Av. Punta Arenas 6711, La Granja", "price": "$7.500 niños (menores de 2 gratis)", "when": "Consultar horario; los lunes suele estar cerrado", "endsAt": null, "url": "https://www.encancha.cl/enlahora/panoramas/2026/01/23/museo-interactivo-mirador-conoce-los-detalles-y-horarios-de-este-entretenido-panorama-en-santiago/"}, {"id": "parque-bicentenario-vitacura", "title": "Juegos y picnic junto a lagunas", "place": "Parque Bicentenario", "kind": "Parque", "description": "Parque de unas 30 hectáreas con dos lagunas, juegos infantiles y zonas deportivas visibles para los adultos.", "ageMin": 0, "ageMax": 12, "region": "Santiago (RM)", "address": "Vitacura", "price": "Gratis", "when": "Todos los días 08:00–21:00", "endsAt": null, "url": "https://www.meteored.cl/noticias/actualidad/cinco-parques-gratuitos-para-hacer-un-picnic-en-santiago.html"}, {"id": "pueblito-las-vizcachas", "title": "Parque con granja y laguna", "place": "Pueblito Las Vizcachas", "kind": "Parque", "description": "Parque familiar con juegos infantiles, aviario, granja educativa y laguna; los fines de semana hay feria y food trucks.", "ageMin": 0, "ageMax": 12, "region": "Santiago (RM)", "address": "Puente Alto", "price": "Gratis", "when": "Consultar horario", "endsAt": null, "url": "https://www.meteored.cl/noticias/actualidad/cinco-parques-gratuitos-para-hacer-un-picnic-en-santiago.html"}, {"id": "coco-cafe-providencia", "title": "Casa de juegos con café", "place": "Cocó Café", "kind": "Cafetería con juegos", "description": "Casa habilitada para que los niños jueguen adentro mientras los adultos toman café o trabajan en el patio. Menú apto para alérgicos.", "ageMin": 1, "ageMax": 7, "region": "Santiago (RM)", "address": "Providencia", "price": "Por consumo", "when": "Consultar horario (dato de 2017)", "endsAt": null, "url": "https://www.latercera.com/paula/cafes-ir-ninos/"}, {"id": "museo-regional-rancagua", "title": "Museo con actividades educativas", "place": "Museo Regional de Rancagua", "kind": "Museo", "description": "Su área educativa ofrece experiencias sensoriales en una vivienda colonial y talleres de arte para niños.", "ageMin": 3, "ageMax": 12, "region": "O'Higgins", "address": "Rancagua", "price": "Consultar", "when": "Consultar horario", "endsAt": null, "url": "https://www.uber.com/es-CL/blog/actividades-para-ninos-en-rancagua"}, {"id": "parque-comunal-rancagua", "title": "Áreas verdes y juegos", "place": "Parque Comunal de Rancagua", "kind": "Parque", "description": "Áreas verdes con juegos, espacio para picnic y quinchos para ir en familia.", "ageMin": 0, "ageMax": 12, "region": "O'Higgins", "address": "Rancagua", "price": "Gratis", "when": "Consultar horario", "endsAt": null, "url": "https://www.uber.com/es-CL/blog/actividades-para-ninos-en-rancagua"}, {"id": "museo-submarino-obrien-valdivia", "title": "Submarino convertido en museo", "place": "Museo Naval Submarino O'Brien", "kind": "Museo", "description": "Submarino real a orillas del río, recomendado para ir con niños.", "ageMin": 4, "ageMax": 12, "region": "Los Ríos", "address": "Costanera, Valdivia", "price": "Consultar", "when": "Consultar horario", "endsAt": null, "url": "https://www.uber.com/es-CL/blog/lugares-para-visitar-en-valdivia-2"}, {"id": "jardin-botanico-valdivia", "title": "Paseo por jardín botánico y parque", "place": "Jardín Botánico y Parque Saval", "kind": "Parque", "description": "Parque ribereño de 30 hectáreas con jardín botánico para conocer plantas nativas y observar aves.", "ageMin": 0, "ageMax": 12, "region": "Los Ríos", "address": "Valdivia", "price": "Consultar", "when": "Consultar horario", "endsAt": null, "url": "https://www.uber.com/es-CL/blog/lugares-para-visitar-en-valdivia-2"}, {"id": "guaguateca-antofagasta", "title": "Guaguateca para primera infancia", "place": "Biblioteca Regional de Antofagasta", "kind": "Biblioteca", "description": "Primera guaguateca de la red nacional: espacio gratuito de lectura y juego para bebés y niños pequeños junto a sus cuidadores.", "ageMin": 0, "ageMax": 4, "region": "Antofagasta", "address": "Antofagasta", "price": "Gratis", "when": "Consultar horario", "endsAt": null, "url": "https://www.cultura.gob.cl/plan-lectura/ministerio-de-las-culturas-inaugura-en-antofagasta-la-primera-de-44-guaguatecas-que-seran-parte-de-una-nueva-red-nacional/"}, {"id": "guaguateca-valparaiso", "title": "Guaguateca para primera infancia", "place": "Biblioteca de Santiago Severín", "kind": "Biblioteca", "description": "Guaguateca para la primera infancia en la Biblioteca Santiago Severín, con libros y espacio de juego para los más pequeños.", "ageMin": 0, "ageMax": 4, "region": "Valparaíso", "address": "Valparaíso", "price": "Gratis", "when": "Consultar horario", "endsAt": null, "url": "https://www.cultura.gob.cl/actualidad/biblioteca-santiago-severin-inauguro-guaguateca-para-la-primera-infancia-en-valparaiso/"}, {"id": "guaguateca-puente-alto", "title": "Guaguateca en Puente Alto", "place": "Guaguateca de Puente Alto", "kind": "Biblioteca", "description": "Nuevo espacio gratuito para la primera infancia, parte de la red de guaguatecas descentralizadas.", "ageMin": 0, "ageMax": 4, "region": "Santiago (RM)", "address": "Puente Alto", "price": "Gratis", "when": "Consultar horario", "endsAt": null, "url": "https://radio.uchile.cl/2025/11/24/nueva-guaguateca-en-puente-alto-gobierno-fortalece-red-de-espacios-gratuitos-y-descentralizados-para-la-primera-infancia/"}, {"id": "guaguateca-puerto-montt", "title": "Guaguateca para niños de 0 a 4 años", "place": "Biblioteca Regional de Los Lagos", "kind": "Biblioteca", "description": "Espacio para niñas y niños de 0 a 4 años con libros seleccionados, para compartir la lectura con sus cuidadores.", "ageMin": 0, "ageMax": 4, "region": "Los Lagos", "address": "Quillota 113, Puerto Montt", "price": "Gratis", "when": "Consultar horario", "endsAt": null, "url": "https://www.semanariolocal.cl/?p=34105"}]};
+let PANOS = PANOS_META.panoramas;
+
+const CAT = {
+  'Pañales':           { icon: 'diaper',   tone: 'sky' },
+  'Alimentación bebé': { icon: 'bottle',   tone: 'butter' },
+  'Ropa bebé':         { icon: 'onesie',   tone: 'sage' },
+  'Artículos bebé':    { icon: 'stroller', tone: 'butter' },
+  'Embarazo':          { icon: 'bump',     tone: 'rose' },
+  'Belleza':           { icon: 'sparkle',  tone: 'lilac' },
+  'Ropa mujer':        { icon: 'dress',    tone: 'blush' },
+  'Salud':             { icon: 'health',   tone: 'sage' },
+  'Beneficio estatal': { icon: 'landmark', tone: 'lilac' },
+  'Otro':              { icon: 'tag',      tone: 'blush' },
+};
+const KIND = {
+  'Cafetería con juegos':  { icon: 'cup',    tone: 'blush' },
+  'Parque':                { icon: 'tree',   tone: 'sage' },
+  'Museo':                 { icon: 'museum', tone: 'lilac' },
+  'Biblioteca':            { icon: 'book',   tone: 'sky' },
+  'Taller':                { icon: 'brush',  tone: 'butter' },
+  'Evento':                { icon: 'star',   tone: 'rose' },
+  'Juegos y entretención': { icon: 'puzzle', tone: 'butter' },
+  'Otro':                  { icon: 'pin',    tone: 'sky' },
+};
+const AGES = [
+  { id: 'all', label: 'Todas' },
+  { id: '0-1', label: '0 a 1 año', lo: 0, hi: 1 },
+  { id: '1-3', label: '1 a 3 años', lo: 1, hi: 3 },
+  { id: '3-6', label: '3 a 6 años', lo: 3, hi: 6 },
+  { id: '6-12', label: '6 a 12 años', lo: 6, hi: 12 },
+];
+
+const state = { tab: 'cupones', q: '', aud: 'all', cat: null, age: 'all', zone: 'all', free: false, kind: null };
+try { const t = localStorage.getItem('descubre-tab'); if (t === 'panoramas') state.tab = t; } catch (e) {}
+
+const $ = s => document.querySelector(s);
+const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+const ico = (name, cls = '') => `<svg class="i ${cls}" aria-hidden="true"><use href="#i-${name}"/></svg>`;
+const norm = s => String(s ?? '').normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase();
+const tz = 'America/Santiago';
+const todayISO = new Intl.DateTimeFormat('en-CA', { timeZone: tz }).format(new Date());
+
+function fmtDate(iso, opts) {
+  const [y, m, d] = iso.split('-').map(Number);
+  return new Intl.DateTimeFormat('es-CL', { timeZone: 'UTC', ...opts }).format(new Date(Date.UTC(y, m - 1, d)));
+}
+function daysUntil(iso) {
+  const a = Date.parse(todayISO + 'T00:00:00Z'), b = Date.parse(iso + 'T00:00:00Z');
+  return Math.round((b - a) / 864e5);
+}
+function stampText(updatedAt) {
+  if (!updatedAt) return '';
+  const d = new Date(updatedAt);
+  const day = new Intl.DateTimeFormat('en-CA', { timeZone: tz }).format(d);
+  const hour = new Intl.DateTimeFormat('es-CL', { timeZone: tz, hour: '2-digit', minute: '2-digit' }).format(d);
+  const diff = daysUntil(day);
+  const when = diff === 0 ? 'hoy' : diff === -1 ? 'ayer' : fmtDate(day, { weekday: 'long', day: 'numeric', month: 'long' });
+  return `Actualizado ${when} a las ${hour}`;
+}
+
+/* ---------- Cupones ---------- */
+function splitDiscount(raw) {
+  const s = String(raw).trim();
+  let m = s.match(/^(hasta\s+)?(\d+\s?%)\s*(.*)$/i);
+  if (m) return { big: m[2].replace(/\s/g, ''), unit: m[3] && !/^dcto\.?$/i.test(m[3]) ? m[3] : (m[1] ? 'dcto máximo' : 'dcto') };
+  m = s.match(/^(hasta\s+)?(\$[\d.]+)(.*)$/i);
+  if (m) return { big: m[2], unit: ((m[1] ? 'hasta ' : '') + m[3].replace(/^\//, 'por ')).trim() || 'precio' };
+  return { big: s, unit: '' };
+}
+function renderAud() {
+  const opts = [
+    { id: 'all', label: 'Todo', icon: 'all' },
+    { id: 'bebe', label: 'Para tu bebé', icon: 'baby' },
+    { id: 'mujer', label: 'Para ti', icon: 'woman' },
+  ];
+  $('#aud').innerHTML = opts.map(o =>
+    `<button class="chip" data-aud="${o.id}" aria-pressed="${state.aud === o.id}">${ico(o.icon)}${o.label}</button>`).join('');
+}
+function renderCats() {
+  const pool = DEALS.filter(d => state.aud === 'all' || d.audience === state.aud);
+  const counts = {};
+  pool.forEach(d => counts[d.category] = (counts[d.category] || 0) + 1);
+  const cats = Object.keys(CAT).filter(c => counts[c]);
+  if (state.cat && !counts[state.cat]) state.cat = null;
+  $('#cats').innerHTML = cats.map(c =>
+    `<button class="tile" data-cat="${esc(c)}" aria-pressed="${state.cat === c}">
+      <span class="ic t-${CAT[c].tone}">${ico(CAT[c].icon)}</span>
+      <span class="lb">${esc(c)}</span><span class="n">${counts[c]} ${counts[c] === 1 ? 'cupón' : 'cupones'}</span>
+    </button>`).join('');
+  $('#cat-clear').hidden = !state.cat;
+}
+function renderDeals() {
+  const q = norm(state.q);
+  const list = DEALS.filter(d =>
+    (state.aud === 'all' || d.audience === state.aud) &&
+    (!state.cat || d.category === state.cat) &&
+    (!q || norm([d.title, d.store, d.description, d.category, d.discount].join(' ')).includes(q)));
+  $('#d-num').textContent = `${list.length} de ${DEALS.length}`;
+  if (!list.length) {
+    $('#deals').innerHTML = `<div class="empty">${ico('search')}<strong>No encontramos cupones</strong><span>Prueba con otra palabra o quita los filtros.</span></div>`;
+    return;
+  }
+  $('#deals').innerHTML = list.map(d => {
+    const meta = CAT[d.category] || CAT['Otro'];
+    const disc = splitDiscount(d.discount);
+    const size = disc.big.length > 10 ? 's' : disc.big.length > 5 ? 'm' : '';
+    let exp = `<span>${ico('cal')}Sin fecha de término</span>`;
+    if (d.expiresAt) {
+      const n = daysUntil(d.expiresAt);
+      exp = n <= 7
+        ? `<span class="soon">${ico('clock')}${n <= 0 ? 'Vence hoy' : n === 1 ? 'Vence mañana' : `Vence en ${n} días`}</span>`
+        : `<span>${ico('cal')}Hasta el ${fmtDate(d.expiresAt, { day: 'numeric', month: 'short' })}</span>`;
+    }
+    return `<a class="coupon" href="${esc(d.url)}" target="_blank" rel="noopener">
+      <div class="stub t-${meta.tone}">
+        <span class="big ${size}">${esc(disc.big)}</span>
+        ${disc.unit ? `<span class="unit">${esc(disc.unit)}</span>` : ''}
+      </div>
+      <div class="body">
+        <span class="store">${esc(d.store)}</span>
+        <h3 class="title">${esc(d.title)}</h3>
+        <p class="desc">${esc(d.description)}</p>
+        <div class="meta">${exp}<span class="go">Ver ${ico('arrow')}</span></div>
+      </div>
+    </a>`;
+  }).join('');
+}
+
+/* ---------- Panoramas ---------- */
+const isFree = p => /gratis/i.test(p.price || '');
+const inZone = p => state.zone === 'all' || p.region === 'Todo Chile' ||
+  (state.zone === 'rm' ? p.region === 'Santiago (RM)' : p.region !== 'Santiago (RM)');
+function inAge(p) {
+  const a = AGES.find(x => x.id === state.age);
+  return !a || a.id === 'all' || (p.ageMin <= a.hi && p.ageMax >= a.lo);
+}
+function renderPanoFilters() {
+  $('#age').innerHTML = AGES.map(a =>
+    `<button class="chip" data-age="${a.id}" aria-pressed="${state.age === a.id}">${a.label}</button>`).join('');
+  const zones = [{ id: 'all', label: 'Todo Chile' }, { id: 'rm', label: 'Santiago' }, { id: 'reg', label: 'Regiones' }];
+  $('#zone').innerHTML = zones.map(z =>
+    `<button class="chip" data-zone="${z.id}" aria-pressed="${state.zone === z.id}">${ico('pin')}${z.label}</button>`).join('') +
+    `<button class="chip toggle" id="free" aria-pressed="${state.free}">${ico('gift')}Solo gratis</button>`;
+  const pool = PANOS.filter(p => inAge(p) && inZone(p) && (!state.free || isFree(p)));
+  const counts = {};
+  pool.forEach(p => counts[p.kind] = (counts[p.kind] || 0) + 1);
+  const kinds = Object.keys(KIND).filter(k => counts[k]);
+  if (state.kind && !counts[state.kind]) state.kind = null;
+  $('#kinds').innerHTML = kinds.map(k =>
+    `<button class="tile" data-kind="${esc(k)}" aria-pressed="${state.kind === k}">
+      <span class="ic t-${KIND[k].tone}">${ico(KIND[k].icon)}</span>
+      <span class="lb">${esc(k)}</span><span class="n">${counts[k]}</span>
+    </button>`).join('');
+  $('#kind-clear').hidden = !state.kind;
+}
+function ageLabel(p) {
+  if (p.ageMin === 0 && p.ageMax <= 4) return `Guaguas hasta ${p.ageMax} años`;
+  if (p.ageMin === 0) return `Desde guagua hasta ${p.ageMax} años`;
+  return `De ${p.ageMin} a ${p.ageMax} años`;
+}
+function renderPanos() {
+  const list = PANOS.filter(p => inAge(p) && inZone(p) && (!state.free || isFree(p)) && (!state.kind || p.kind === state.kind));
+  $('#p-num').textContent = `${list.length} de ${PANOS.length}`;
+  if (!list.length) {
+    $('#panos').innerHTML = `<div class="empty">${ico('balloon')}<strong>Nada con esos filtros</strong><span>Prueba otra edad o zona.</span></div>`;
+    return;
+  }
+  const MAX = 12;
+  $('#panos').innerHTML = list.map(p => {
+    const k = KIND[p.kind] || KIND['Otro'];
+    const lo = Math.min(p.ageMin, MAX), hi = Math.min(p.ageMax, MAX);
+    const where = p.region === 'Santiago (RM)' ? (p.address || 'Santiago') : [p.address, p.region].filter(Boolean).join(' · ');
+    const when = p.endsAt ? `${p.when}` : p.when;
+    return `<a class="pano t-${k.tone}" href="${esc(p.url)}" target="_blank" rel="noopener">
+      <div class="top">
+        <span class="badge">${ico(k.icon)}</span>
+        <span class="kind">${esc(p.kind)}</span>
+        <span class="price ${isFree(p) ? 'free' : ''}">${esc(p.price)}</span>
+      </div>
+      <h3 class="title">${esc(p.title)}</h3>
+      <div class="place">${esc(p.place)}</div>
+      <p class="desc">${esc(p.description)}</p>
+      <div class="ages" aria-label="${esc(ageLabel(p))}">
+        <div class="ages-h"><span>${esc(ageLabel(p))}</span><small>edad recomendada</small></div>
+        <div class="track"><div class="fill" style="left:${lo / MAX * 100}%;right:${100 - Math.max(hi, lo + .4) / MAX * 100}%"></div></div>
+        <div class="ticks" aria-hidden="true"><span>0</span><span>3</span><span>6</span><span>9</span><span>12+</span></div>
+      </div>
+      <div class="meta">
+        <span>${ico('pin')}${esc(where)}</span>
+        <span>${ico('clock')}${esc(when)}</span>
+        <span class="go">Ver ${ico('arrow')}</span>
+      </div>
+    </a>`;
+  }).join('');
+}
+
+/* ---------- General ---------- */
+function setTab(t) {
+  state.tab = t;
+  try { localStorage.setItem('descubre-tab', t); } catch (e) {}
+  const isC = t === 'cupones';
+  $('#tab-cupones').setAttribute('aria-selected', isC);
+  $('#tab-panoramas').setAttribute('aria-selected', !isC);
+  $('#view-cupones').hidden = !isC;
+  $('#view-panoramas').hidden = isC;
+  $('#h1').innerHTML = isC ? 'Cupones para ti <em>y tu bebé</em>' : 'Panoramas para <em>tus niños</em>';
+  $('#stamp').textContent = stampText(isC ? DEALS_META.updatedAt : PANOS_META.updatedAt);
+}
+function renderCupones() { renderAud(); renderCats(); renderDeals(); }
+function renderPanoramas() { renderPanoFilters(); renderPanos(); }
+
+document.addEventListener('click', e => {
+  const b = e.target.closest('button');
+  if (!b) return;
+  if (b.id === 'tab-cupones') return setTab('cupones');
+  if (b.id === 'tab-panoramas') return setTab('panoramas');
+  if (b.dataset.aud) { state.aud = b.dataset.aud; return renderCupones(); }
+  if (b.dataset.cat) { state.cat = state.cat === b.dataset.cat ? null : b.dataset.cat; return renderCupones(); }
+  if (b.id === 'cat-clear') { state.cat = null; return renderCupones(); }
+  if (b.dataset.age) { state.age = b.dataset.age; return renderPanoramas(); }
+  if (b.dataset.zone) { state.zone = b.dataset.zone; return renderPanoramas(); }
+  if (b.id === 'free') { state.free = !state.free; return renderPanoramas(); }
+  if (b.dataset.kind) { state.kind = state.kind === b.dataset.kind ? null : b.dataset.kind; return renderPanoramas(); }
+  if (b.id === 'kind-clear') { state.kind = null; return renderPanoramas(); }
+});
+$('#q').addEventListener('input', e => { state.q = e.target.value; renderDeals(); });
+
+$('#c-cupones').textContent = DEALS.length;
+$('#c-panoramas').textContent = PANOS.length;
+renderCupones();
+renderPanoramas();
+setTab(state.tab);
+
+/* Datos en vivo: los publica cada mañana la rutina en GitHub. Si no hay conexión, queda la copia incluida. */
+const RAW = 'https://raw.githubusercontent.com/Hemixx/mama-al-dia-descuentos/main/';
+const today = todayISO;
+const notExpired = (x, key) => !x[key] || x[key] >= today;
+async function loadLive() {
+  $('#stamp').classList.add('loading');
+  const bust = '?h=' + Math.floor(Date.now() / 36e5);
+  try {
+    const [dr, pr] = await Promise.all([fetch(RAW + 'deals.json' + bust), fetch(RAW + 'panoramas.json' + bust)]);
+    if (dr.ok) { const dj = await dr.json(); if (Array.isArray(dj.deals) && dj.deals.length) { DEALS_META = dj; DEALS = dj.deals; } }
+    if (pr.ok) { const pj = await pr.json(); if (Array.isArray(pj.panoramas) && pj.panoramas.length) { PANOS_META = pj; PANOS = pj.panoramas; } }
+  } catch (e) { /* sin conexión: se mantiene la copia incluida */ }
+  DEALS = DEALS.filter(x => notExpired(x, 'expiresAt'));
+  PANOS = PANOS.filter(x => notExpired(x, 'endsAt'));
+  $('#stamp').classList.remove('loading');
+  $('#c-cupones').textContent = DEALS.length;
+  $('#c-panoramas').textContent = PANOS.length;
+  renderCupones(); renderPanoramas(); setTab(state.tab);
+}
+loadLive();
+document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'visible') loadLive(); });
+</script>
+</body>
+</html>
+

@@ -1,0 +1,148 @@
+{
+  "updatedAt": "2026-10-16T01:47:48.938Z",
+  "deals": [
+    {
+      "id": "salcobrand-club-bebe",
+      "title": "Hasta 20% en productos de bebé",
+      "store": "Farmacias Salcobrand · Club Bebé",
+      "description": "Descuento en productos de bebé para afiliados a Caja Los Andes que usen el convenio Club Bebé de Salcobrand.",
+      "discount": "Hasta 20%",
+      "region": "Todo Chile",
+      "category": "Bebé",
+      "url": "https://masbeneficios.cajalosandes.cl/bebe-convenio?beneficio=farmacias-salcobrand---club-bebe-desc-hasta-20-dcto",
+      "expiresAt": "2026-12-31"
+    },
+    {
+      "id": "ahumada-club-mi-bebe",
+      "title": "Club Mi Bebé: cupón de bienvenida",
+      "store": "Farmacias Ahumada",
+      "description": "Programa gratuito desde el embarazo: cupón de 20% en productos seleccionados, misiones mensuales con cupones y despacho gratis en compras de bebé sobre $29.990.",
+      "discount": "20% bienvenida",
+      "region": "Todo Chile",
+      "category": "Bebé",
+      "url": "https://www.farmaciasahumada.cl/club-bebe.html",
+      "expiresAt": null
+    },
+    {
+      "id": "cruzverde-genericos-cajalosandes",
+      "title": "45% en medicamentos genéricos",
+      "store": "Farmacia Cruz Verde",
+      "description": "Descuento en medicamentos genéricos para afiliados a Caja Los Andes.",
+      "discount": "45% dcto",
+      "region": "Todo Chile",
+      "category": "Salud",
+      "url": "https://masbeneficios.cajalosandes.cl/salud-convenio?beneficio=farmacia-cruz-verde-desc-45-dcto&idc=RoR&idb=kmY",
+      "expiresAt": "2026-12-31"
+    },
+    {
+      "id": "happy-mom-achs",
+      "title": "20% en productos de bebé",
+      "store": "Happy Mom Chile · Mundo ACHS",
+      "description": "Descuento para trabajadores afiliados a ACHS, con despacho a todo Chile por Correos de Chile.",
+      "discount": "20% dcto",
+      "region": "Todo Chile",
+      "category": "Bebé",
+      "url": "https://mundoachs.cl/descuento/happy-mom-chile",
+      "expiresAt": "2027-04-30"
+    },
+    {
+      "id": "unimarc-babysec-xxxg",
+      "title": "Pañales Babysec Super Premium XXXG 108 u.",
+      "store": "Unimarc",
+      "description": "Precio oferta $30.390 (normal $44.690). También XXG 112 u. a $30.390. Revisa disponibilidad en tu local.",
+      "discount": "32% dcto",
+      "region": "Todo Chile",
+      "category": "Bebé",
+      "url": "https://www.unimarc.cl/brand/babysec",
+      "expiresAt": null
+    },
+    {
+      "id": "jumbo-babysec-xxg",
+      "title": "Pañales Babysec Super Premium XXG 112 u.",
+      "store": "Jumbo",
+      "description": "Precio oferta $30.893 (normal $41.190). También Babysec Voy a Dormir S/M a $9.190.",
+      "discount": "25% dcto",
+      "region": "Todo Chile",
+      "category": "Bebé",
+      "url": "https://www.jumbo.cl/bebe-y-jugueteria/bebe",
+      "expiresAt": null
+    },
+    {
+      "id": "lider-babysec",
+      "title": "Pañales Babysec Súper Premium XXG 100 u.",
+      "store": "Lider",
+      "description": "Pack de 100 unidades a $29.990 en el supermercado online.",
+      "discount": "$29.990",
+      "region": "Todo Chile",
+      "category": "Bebé",
+      "url": "https://super.lider.cl/v/panales-babysec",
+      "expiresAt": null
+    },
+    {
+      "id": "ajuar-chile-crece-contigo",
+      "title": "Ajuar de bienvenida gratis",
+      "store": "Chile Crece Contigo",
+      "description": "Si tu hijo nace en un hospital público recibes cuna corral, colchón, portabebé, cojín de lactancia, mudador, ropa básica y material de estimulación.",
+      "discount": "Gratis",
+      "region": "Todo Chile",
+      "category": "Beneficio estatal",
+      "url": "https://www.elmostrador.cl/datos-utiles/2026/07/03/si-tu-hijo-nace-en-hospital-publico-te-corresponde-este-kit-gratuito-que-pasara-tras-el-recorte/",
+      "expiresAt": null
+    },
+    {
+      "id": "asignacion-maternal",
+      "title": "Asignación Maternal: hasta $22.007 al mes",
+      "store": "Caja de compensación / IPS",
+      "description": "Para trabajadoras embarazadas según tramo de ingreso. Se pide desde el 5° mes de gestación y se paga en forma retroactiva.",
+      "discount": "Hasta $22.007/mes",
+      "region": "Todo Chile",
+      "category": "Embarazo",
+      "url": "https://www.biobiochile.cl/noticias/servicios/beneficios/2026/08/10/embarazadas-pueden-recibir-hasta-22-mil-al-mes-asi-se-obtiene-la-asignacion-maternal.shtml",
+      "expiresAt": null
+    },
+    {
+      "id": "subsidio-maternal",
+      "title": "Subsidio Maternal desde el 5° mes",
+      "store": "Chile Crece Contigo · IPS",
+      "description": "Para embarazadas del 60% de menores recursos según el Registro Social de Hogares. Lo paga el IPS a través de Caja Los Héroes.",
+      "discount": "Subsidio",
+      "region": "Todo Chile",
+      "category": "Beneficio estatal",
+      "url": "https://www.crececontigo.gob.cl/faqs/cuales-son-los-requisitos-para-el-suf-maternal/",
+      "expiresAt": null
+    },
+    {
+      "id": "panoramas-gratis-santiago-octubre",
+      "title": "Panoramas gratis del 16 al 18 de octubre",
+      "store": "Varios lugares de la RM",
+      "description": "Feria del libro infantil en Quinta Normal (domingo 18, 11:00 a 21:00) y otras actividades gratuitas del fin de semana.",
+      "discount": "Gratis",
+      "region": "Santiago (RM)",
+      "category": "Panoramas",
+      "url": "https://www.meteored.cl/noticias/ocio/que-hacer-en-santiago-este-fin-de-semana-los-mejores-panoramas-del-16-al-18-de-octubre.html",
+      "expiresAt": "2026-10-18"
+    },
+    {
+      "id": "valparaiso-paseos-ninos",
+      "title": "Paseos gratis con niños en Valparaíso",
+      "store": "Museos y ascensores de Valparaíso",
+      "description": "Ideas para recorrer Valparaíso con niños: museos con entrada liberada para menores, ascensores y miradores.",
+      "discount": "Gratis",
+      "region": "Valparaíso",
+      "category": "Panoramas",
+      "url": "https://umatu.cl/paseos-en-valparaiso-con-ninos/",
+      "expiresAt": null
+    },
+    {
+      "id": "la-serena-panoramas",
+      "title": "Panoramas familiares en La Serena",
+      "store": "Municipalidad de La Serena",
+      "description": "Agenda municipal con actividades, shows infantiles y parques gratuitos como el Parque O'Higgins.",
+      "discount": "Gratis",
+      "region": "Coquimbo",
+      "category": "Panoramas",
+      "url": "https://panoramas.laserena.cl/",
+      "expiresAt": null
+    }
+  ]
+}

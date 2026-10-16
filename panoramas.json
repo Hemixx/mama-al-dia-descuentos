@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-16T02:27:43.726Z",
+  "updatedAt": "2026-10-16T02:34:15.598Z",
   "panoramas": [
     {
       "id": "cafetin-de-virgilio",
@@ -210,6 +210,96 @@
       "when": "Consultar horario",
       "endsAt": null,
       "url": "https://www.tvn.cl/ntv/que-sucede/noticias-destacadas/mas-de-10-panoramas-para-el-dia-de-la-ninez-2026-en-regiones"
+    },
+    {
+      "id": "selva-aventura-cafe-nunoa",
+      "title": "Café temático con salitas de juego",
+      "place": "Selva Aventura Café",
+      "kind": "Cafetería con juegos",
+      "description": "Cafetería temática con salas de juegos infantiles y áreas verdes, pensada para ir con los hijos.",
+      "ageMin": 1,
+      "ageMax": 8,
+      "region": "Santiago (RM)",
+      "address": "Ñuñoa",
+      "price": "Consultar",
+      "when": "Consultar horario",
+      "endsAt": null,
+      "url": "https://www.encancha.cl/enlahora/panoramas/2025/12/11/esta-cafeteria-ubicada-en-santiago-es-perfecta-para-visitar-durante-el-fin-de-semana-con-ninos/"
+    },
+    {
+      "id": "gluck-juegos-cafe-vitacura",
+      "title": "Sala de juegos con café para adultos",
+      "place": "Glück Juegos & Café",
+      "kind": "Cafetería con juegos",
+      "description": "Sala de juegos supervisada por el personal mientras los adultos toman café. Se paga entrada por cada niño.",
+      "ageMin": 1,
+      "ageMax": 8,
+      "region": "Santiago (RM)",
+      "address": "Vitacura",
+      "price": "Consultar",
+      "when": "Consultar horario",
+      "endsAt": null,
+      "url": "https://www.afar.com/places/gluck-juegos-and-cafe-vitacura?p=5"
+    },
+    {
+      "id": "plaza-acevedo-dinosaurios-concepcion",
+      "title": "Plaza de los dinosaurios",
+      "place": "Plaza Acevedo",
+      "kind": "Parque",
+      "description": "Réplicas de dinosaurios a tamaño real (T-Rex, Diplodocus, pterodáctilo) y juegos como muros de escalada. El Museo de Historia Natural queda en la misma plaza.",
+      "ageMin": 0,
+      "ageMax": 12,
+      "region": "Biobío",
+      "address": "Plaza Acevedo, Concepción",
+      "price": "Gratis",
+      "when": "Consultar horario",
+      "endsAt": null,
+      "url": "https://www.uber.com/es-CL/blog/actividades-para-ninos-en-concepcion"
+    },
+    {
+      "id": "museo-regional-araucania-temuco",
+      "title": "Museo con actividades para niños",
+      "place": "Museo Regional de La Araucanía",
+      "kind": "Museo",
+      "description": "Museo con talleres, visitas guiadas y espectáculos para niños; la programación cambia, conviene revisarla antes de ir.",
+      "ageMin": 3,
+      "ageMax": 12,
+      "region": "Araucanía",
+      "address": "Alemania 084, Temuco",
+      "price": "Consultar",
+      "when": "Consultar horario",
+      "endsAt": null,
+      "url": "https://www.uber.com/es-CL/blog/actividades-para-ninos-en-temuco"
+    },
+    {
+      "id": "biblioteca-gabriela-mistral-la-serena",
+      "title": "Cuentos en la sala infantil",
+      "place": "Biblioteca Regional Gabriela Mistral",
+      "kind": "Biblioteca",
+      "description": "Sala infantil con cuentos y dinámicas para niños (los \"Biblioviernes\").",
+      "ageMin": 3,
+      "ageMax": 10,
+      "region": "Coquimbo",
+      "address": "La Serena",
+      "price": "Consultar",
+      "when": "Consultar horario",
+      "endsAt": null,
+      "url": "https://www.radioagricultura.cl/dato-practico/2023/08/04/listos-para-el-dia-del-nino-conoce-los-imperdibles-panoramas-gratuitos-en-regiones/"
+    },
+    {
+      "id": "biblioteca-regional-antofagasta",
+      "title": "Hora del Cuento",
+      "place": "Biblioteca Regional de Antofagasta",
+      "kind": "Biblioteca",
+      "description": "Hora del Cuento y talleres para niños en la biblioteca.",
+      "ageMin": 3,
+      "ageMax": 10,
+      "region": "Antofagasta",
+      "address": "Antofagasta",
+      "price": "Consultar",
+      "when": "Consultar horario",
+      "endsAt": null,
+      "url": "https://www.radioagricultura.cl/dato-practico/2023/08/04/listos-para-el-dia-del-nino-conoce-los-imperdibles-panoramas-gratuitos-en-regiones/"
     }
   ]
 }

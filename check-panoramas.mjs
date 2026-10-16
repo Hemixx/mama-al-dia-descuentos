@@ -41,5 +41,8 @@ if (panoramas.length < 5) {
   process.exit(1);
 }
 
-writeFileSync(FILE, JSON.stringify({ updatedAt: new Date().toISOString(), panoramas }, null, 2) + '\n');
+// Solo se reescribe si la lista cambió: así una segunda validación no genera un commit vacío.
+if (JSON.stringify(panoramas) !== JSON.stringify(data.panoramas)) {
+  writeFileSync(FILE, JSON.stringify({ updatedAt: new Date().toISOString(), panoramas }, null, 2) + '\n');
+}
 console.log(`panoramas.json OK: ${panoramas.length} panoramas vigentes.`);

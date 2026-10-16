@@ -39,5 +39,8 @@ if (deals.length < 5) {
   process.exit(1);
 }
 
-writeFileSync(FILE, JSON.stringify({ updatedAt: new Date().toISOString(), deals }, null, 2) + '\n');
+// Solo se reescribe si la lista cambió: así una segunda validación no genera un commit vacío.
+if (JSON.stringify(deals) !== JSON.stringify(data.deals)) {
+  writeFileSync(FILE, JSON.stringify({ updatedAt: new Date().toISOString(), deals }, null, 2) + '\n');
+}
 console.log(`deals.json OK: ${deals.length} descuentos vigentes.`);

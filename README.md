@@ -1,3 +1,7 @@
+> **Este repo ya no se usa.** Desde el 17-10-2026 los cupones, los panoramas, los validadores y
+> la página Descubre viven en el repo privado `Hemixx/mama-al-dia`, junto con el código de la app.
+> Las tareas programadas actualizan ese repo; los datos de aquí quedan congelados.
+
 # Descuentos · Mamá al Día
 
 Cupones para bebés y mujeres, y panoramas para familias con niños pequeños en Chile (Santiago y regiones), que muestra la app **Mamá al Día** (https://mama-al-dia-31837.web.app).

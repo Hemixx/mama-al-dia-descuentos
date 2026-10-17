@@ -19,3 +19,7 @@ todo lo demás a la app de Firebase (`vercel.json`).
 
 Arreglo definitivo en Firebase: en `firebase.json` quitar `"**/node_modules/**"` de
 `hosting.ignore` y volver a hacer `firebase deploy`.
+
+El `vercel.json` de la raíz del repo hace lo mismo cuando el proyecto de Vercel
+se importa sin cambiar el Root Directory: sirve estas fuentes e íconos desde
+`app-fix/` y reenvía el resto a Firebase.

@@ -6,7 +6,7 @@ ignora `**/node_modules/**`), así que 40 de los 46 archivos que pide la app
 (tipografías Fraunces y Plus Jakarta Sans, íconos Ionicons e imágenes de expo-router)
 responden con la página de inicio. Por eso se ve en Times y con cuadrados en vez de íconos.
 
-Esta carpeta contiene esos archivos reconstruidos desde npm, con el mismo nombre
+La carpeta `nm/` contiene esos archivos reconstruidos desde npm, con el mismo nombre. No se llama `node_modules` porque Vercel también ignora esas carpetas; `vercel.json` reenvía `/assets/node_modules/...` a `nm/`
 (el nombre lleva el MD5 del contenido; se verificó que coinciden):
 
 - @expo-google-fonts/fraunces 0.4.1

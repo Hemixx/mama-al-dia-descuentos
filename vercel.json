@@ -1,7 +1,7 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "rewrites": [
-    { "source": "/assets/node_modules/:path*", "destination": "/app-fix/assets/node_modules/:path*" },
+    { "source": "/assets/node_modules/:path*", "destination": "/app-fix/nm/:path*" },
     { "source": "/(.*)", "destination": "https://mama-al-dia-31837.web.app/$1" }
   ],
   "headers": [

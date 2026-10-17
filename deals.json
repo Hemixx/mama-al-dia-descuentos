@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-16T10:07:24.443Z",
+  "updatedAt": "2026-10-17T10:06:19.843Z",
   "deals": [
     {
       "id": "salcobrand-club-bebe",
@@ -227,6 +227,18 @@
       "category": "Salud",
       "url": "https://sitiospublicos.bancochile.cl/personas/beneficios/detalle/farmacias-cruz-verde",
       "expiresAt": "2027-02-15",
+      "audience": "mujer"
+    },
+    {
+      "id": "lider-sosten-lactancia-momcozy",
+      "title": "Sostén de lactancia 2 en 1 Momcozy",
+      "store": "Lider",
+      "description": "Precio oferta $49.990 (antes $58.812). Sirve para amamantar y extraer leche con las manos libres. Verifica stock y vigencia.",
+      "discount": "15% dcto",
+      "region": "Todo Chile",
+      "category": "Embarazo",
+      "url": "https://www.lider.cl/ip/ropa-maternal/momcozy-sosten-de-lactancia-diseno-2-en-1-para-extraccion-y-amamantamiento-ajustable-y-sin-manos-ideal-para-uso-con-sacaleches/00074115798248",
+      "expiresAt": null,
       "audience": "mujer"
     }
   ]

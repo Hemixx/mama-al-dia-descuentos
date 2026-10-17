@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-16T10:36:33.121Z",
+  "updatedAt": "2026-10-17T10:40:00.000Z",
   "panoramas": [
     {
       "id": "cafetin-de-virgilio",
@@ -272,36 +272,6 @@
       "url": "https://www.uber.com/es-CL/blog/actividades-para-ninos-en-temuco"
     },
     {
-      "id": "biblioteca-gabriela-mistral-la-serena",
-      "title": "Cuentos en la sala infantil",
-      "place": "Biblioteca Regional Gabriela Mistral",
-      "kind": "Biblioteca",
-      "description": "Sala infantil con cuentos y dinámicas para niños (los \"Biblioviernes\").",
-      "ageMin": 3,
-      "ageMax": 10,
-      "region": "Coquimbo",
-      "address": "La Serena",
-      "price": "Consultar",
-      "when": "Consultar horario",
-      "endsAt": null,
-      "url": "https://www.radioagricultura.cl/dato-practico/2023/08/04/listos-para-el-dia-del-nino-conoce-los-imperdibles-panoramas-gratuitos-en-regiones/"
-    },
-    {
-      "id": "biblioteca-regional-antofagasta",
-      "title": "Hora del Cuento",
-      "place": "Biblioteca Regional de Antofagasta",
-      "kind": "Biblioteca",
-      "description": "Hora del Cuento y talleres para niños en la biblioteca.",
-      "ageMin": 3,
-      "ageMax": 10,
-      "region": "Antofagasta",
-      "address": "Antofagasta",
-      "price": "Consultar",
-      "when": "Consultar horario",
-      "endsAt": null,
-      "url": "https://www.radioagricultura.cl/dato-practico/2023/08/04/listos-para-el-dia-del-nino-conoce-los-imperdibles-panoramas-gratuitos-en-regiones/"
-    },
-    {
       "id": "museo-interactivo-mirador",
       "title": "Museo interactivo de ciencias",
       "place": "Museo Interactivo Mirador (MIM)",
@@ -345,21 +315,6 @@
       "when": "Consultar horario",
       "endsAt": null,
       "url": "https://www.meteored.cl/noticias/actualidad/cinco-parques-gratuitos-para-hacer-un-picnic-en-santiago.html"
-    },
-    {
-      "id": "coco-cafe-providencia",
-      "title": "Casa de juegos con café",
-      "place": "Cocó Café",
-      "kind": "Cafetería con juegos",
-      "description": "Casa habilitada para que los niños jueguen adentro mientras los adultos toman café o trabajan en el patio. Menú apto para alérgicos.",
-      "ageMin": 1,
-      "ageMax": 7,
-      "region": "Santiago (RM)",
-      "address": "Providencia",
-      "price": "Por consumo",
-      "when": "Consultar horario (dato de 2017)",
-      "endsAt": null,
-      "url": "https://www.latercera.com/paula/cafes-ir-ninos/"
     },
     {
       "id": "museo-regional-rancagua",
@@ -480,6 +435,51 @@
       "when": "Consultar horario",
       "endsAt": null,
       "url": "https://www.semanariolocal.cl/?p=34105"
+    },
+    {
+      "id": "ninos-son-nuestro-norte-antofagasta-2026",
+      "title": "Fiesta de la infancia Los Niñ@s son Nuestro Norte",
+      "place": "Recinto AIA-EXPONOR",
+      "kind": "Evento",
+      "description": "Gran fiesta gratuita por la infancia en Antofagasta, con actividades para niños y familias.",
+      "ageMin": 0,
+      "ageMax": 12,
+      "region": "Antofagasta",
+      "address": "AIA-EXPONOR, Antofagasta",
+      "price": "Gratis",
+      "when": "Sábado 17 oct, desde las 11:00",
+      "endsAt": "2026-10-17",
+      "url": "https://www.reporteminero.cl/noticia/eventos/2026/09/los-ninos-son-nuestro-norte-2026-fiesta-infancia-antofagasta"
+    },
+    {
+      "id": "fiesta-del-libro-concepcion-2026",
+      "title": "Fiesta del Libro con rincón infantil",
+      "place": "Biblioteca Municipal de Concepción",
+      "kind": "Evento",
+      "description": "Jornada gratuita con editoriales, cuentacuentos, talleres, juegos de mesa, música y un rincón infantil.",
+      "ageMin": 2,
+      "ageMax": 12,
+      "region": "Biobío",
+      "address": "Concepción",
+      "price": "Gratis",
+      "when": "Sábado 17 oct, 11:00–18:00",
+      "endsAt": "2026-10-17",
+      "url": "https://www.cultura.gob.cl/agendacultural/fiesta-del-libro-vuelve-a-concepcion-con-mas-de-20-editoriales-y-una-jornada-abierta-a-toda-la-comunidad/"
+    },
+    {
+      "id": "museo-artequin-santiago",
+      "title": "Museo interactivo de arte para niños",
+      "place": "Museo Artequin",
+      "kind": "Museo",
+      "description": "Museo educativo en el Pabellón París con visitas guiadas, talleres y experiencias lúdicas para acercar el arte a niños y niñas.",
+      "ageMin": 3,
+      "ageMax": 12,
+      "region": "Santiago (RM)",
+      "address": "Pabellón París, Santiago",
+      "price": "Niños desde 3 años $1.000 (adultos $3.000)",
+      "when": "Mar a vie 9:00–17:00 · fines de semana 11:00–18:00",
+      "endsAt": null,
+      "url": "https://www.artequin.cl/wp-content/uploads/2025/12/ARTEQUIN-POLITICAS-DE-ACCESO-2024.pdf"
     }
   ]
 }
